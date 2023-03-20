@@ -1,0 +1,33 @@
+.banner {
+	.container-fluid {
+		padding: 0;
+		display: grid;
+		place-items: center;
+		width: 100%;
+		background-color: $color-dark-banner;
+
+		img {
+			display: none;
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+
+			@include lg {
+				display: block;
+			}
+		}
+		.mobile-text {
+			padding: 60px 0;
+			text-align: center;
+			font-family: $font-poppins;
+
+			@include lg {
+				display: none;
+			}
+			h2 {
+				font-size: 32px;
+				color: $color-dark-1;
+			}
+		}
+	}
+}
