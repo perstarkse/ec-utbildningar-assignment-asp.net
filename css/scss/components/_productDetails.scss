@@ -1,0 +1,141 @@
+.product-details {
+	.container {
+		.images-info {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto 1fr;
+			grid-template-areas:
+				'images'
+				'info-actions';
+
+			@include lg {
+				grid-template-columns: 1fr 1fr;
+				grid-template-areas: 'images info-actions';
+			}
+			.images {
+				grid-area: images;
+				.bigImg {
+					display: block;
+					margin: 0 auto;
+					max-width: 501px;
+					width: 100%;
+					height: auto;
+				}
+				.small {
+					display: none;
+					justify-content: center;
+					gap: 7px;
+					margin-top: 1rem;
+					@include sm {
+						display: flex;
+					}
+				}
+			}
+			.info-actions {
+				margin-top: 30px;
+				grid-area: info-actions;
+				text-align: center;
+				@include lg {
+					margin-top: 0;
+					text-align: start;
+					margin-left: 2rem;
+				}
+				.title {
+					margin-bottom: 1rem;
+					font-family: $font-poppins;
+					font-size: 24px;
+					color: $color-dark-1;
+				}
+				.breadtext {
+					margin-bottom: 2rem;
+				}
+				.reviews {
+					display: flex;
+					justify-content: center;
+					gap: 1rem;
+					@include lg {
+						justify-content: flex-start;
+					}
+				}
+				.price {
+					margin-top: 1rem;
+					font-size: 24px;
+					font-family: $font-poppins;
+					color: $color-dark-1;
+				}
+				.cart-actions {
+					display: grid;
+					place-items: center;
+					grid-template-columns: 1fr 1fr;
+					grid-template-rows: 1fr 1fr;
+					grid-template-areas:
+						'counter button'
+						'color-selector sku ';
+					@include lg {
+						place-items: start;
+					}
+					.counter {
+						grid-area: counter;
+						display: flex;
+						width: 120px;
+						height: 40px;
+						text-align: center;
+						.counter-border {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border: 1px solid $color-dark-4;
+							height: 100%;
+							width: 100%;
+							cursor: pointer;
+							&:hover {
+								background-color: $color-dark-4;
+							}
+						}
+					}
+					button {
+						grid-area: button;
+					}
+
+					.color-selector {
+						grid-area: color-selector;
+						flex-direction: row;
+						display: flex;
+						gap: 5px;
+						cursor: pointer;
+						margin-top: 1rem;
+
+						.red {
+							width: 18px;
+							height: 18px;
+							border-radius: 50%;
+							background-color: $color-theme-1;
+						}
+						.yellow {
+							width: 18px;
+							height: 18px;
+							border-radius: 50%;
+							background-color: #f9c936;
+						}
+						.blue {
+							width: 18px;
+							height: 18px;
+							border-radius: 50%;
+							background-color: #92b8b9;
+						}
+					}
+					.sku {
+						grid-area: sku;
+						text-align: center;
+						margin-top: 0.8rem;
+					}
+				}
+				.wishlist {
+					margin-top: 0.8rem;
+					margin-bottom: 1rem;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}
