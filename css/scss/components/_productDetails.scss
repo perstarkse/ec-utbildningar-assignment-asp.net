@@ -1,5 +1,6 @@
 .product-details {
 	.container {
+		margin-top: 70px;
 		.images-info {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -48,9 +49,12 @@
 				grid-area: info-actions;
 				text-align: center;
 				@include lg {
+					margin-left: 1rem;
 					margin-top: 0;
 					text-align: start;
-					margin-left: 2rem;
+				}
+				@include xl {
+					margin-left: 0;
 				}
 				.title {
 					margin-bottom: 1rem;
@@ -150,10 +154,16 @@
 			}
 		}
 		.menu-bar {
-			display: flex;
 			justify-content: space-between;
 			height: 50px;
-			margin-top: 1rem;
+			margin-top: 2rem;
+			display: grid;
+			row-gap: 5px;
+			grid-template-columns: 1fr 1fr;
+			@include lg {
+				display: flex;
+				row-gap: 0;
+			}
 			.menu-button {
 				display: flex;
 				height: auto;

@@ -13,6 +13,17 @@
 		}
 	}
 
+	.collection-title-minor {
+		text-align: left;
+		font-family: $font-poppins;
+		font-weight: $font-weight-semibold;
+		font-size: 24px;
+		color: $color-dark-2;
+		@include md {
+			text-align: center;
+		}
+	}
+
 	.categories {
 		display: none;
 		justify-content: center;
