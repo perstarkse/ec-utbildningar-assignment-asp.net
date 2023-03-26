@@ -1,0 +1,7 @@
+.onePage {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	//remember to set flex:1; on the child elements
+}
