@@ -1,0 +1,68 @@
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Please Register Your New Account</div>
+        <form action="" novalidate>
+            <div class="name form-group">
+                <label for="firstName">First Name*</label>
+                <input type="text" name="firstName" required />
+                <span class="error">First name is required</span>
+            </div>
+            <div class="name form-group">
+                <label for="lastName">Last Name*</label>
+                <input type="text" name="lastName" required />
+                <span class="error">Last name is required</span>
+            </div>
+            <div class="addressOptions form-group">
+                <label for="streetName">Street Name*</label>
+                <input type="text" name="streetName" required />
+                <span class="error">Street name is required</span>
+            </div>
+            <div class="addressOptions form-group">
+                <label for="postalCode">Postal Code*</label>
+                <input type="text" name="postalCode" required />
+                <span class="error">Postal code is required</span>
+            </div>
+            <div class="addressOptions form-group">
+                <label for="city">City*</label>
+                <input type="text" name="city" required />
+                <span class="error">City is required</span>
+            </div>
+            <div class="phoneNumber form-group">
+                <label for="mobile">Mobile (optional)</label>
+                <input type="text" name="mobile" />
+            </div>
+            <div class="companyName form-group">
+                <label for="company">Company (optional)</label>
+                <input type="text" name="company" />
+            </div>
+            <div class="email form-group">
+                <label for="email">Email*</label>
+                <input type="email" name="email" required />
+                <span class="error">Email is required</span>
+            </div>
+            <div class="password form-group">
+                <label for="password">Password*</label>
+                <input type="password" name="password" required />
+                <span class="error">Password is required</span>
+            </div>
+            <div class="password form-group">
+                <label for="confirmPassword">Confirm Password*</label>
+                <input type="password" name="confirmPassword" required />
+                <span class="error">Confirm password is required</span>
+            </div>
+            <div class="uploadImage form-group">
+                <label for="profileImage">Upload Profile Image (optional)</label>
+                <input type="file" name="profileImage" accept="image/*" />
+            </div>
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    I have read and accept the terms and agreements
+                    <input type="checkbox" name="terms" required>
+                    <span class="checkmark"></span>
+                </label>
+                <span class="error">You must accept the terms and agreements</span>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>
