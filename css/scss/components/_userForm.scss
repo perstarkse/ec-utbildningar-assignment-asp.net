@@ -61,7 +61,7 @@
 			}
 			.terms,
 			.leaveSignedIn {
-				width: 100%;
+				width: auto;
 				display: block;
 				@include md {
 					width: auto;
@@ -75,7 +75,7 @@
 			}
 			button {
 				display: flex;
-				margin-left: auto;
+				margin-left: P;
 				margin-right: auto;
 				@include md {
 					margin-left: 0;
