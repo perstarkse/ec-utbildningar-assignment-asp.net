@@ -1,0 +1,228 @@
+@import '../core/_fonts.scss';
+@import '../core/_mixins';
+@import '../core/_colors';
+
+.product-details {
+	.container {
+		margin-top: 70px;
+		.images-info {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto 1fr;
+			grid-template-areas:
+				'images'
+				'info-actions';
+
+			@include lg {
+				grid-template-columns: 1fr 1fr;
+				grid-template-areas: 'images info-actions';
+			}
+			.images {
+				grid-area: images;
+				.bigImg {
+					display: block;
+					margin: 0 auto 0 auto;
+					max-width: 501px;
+					width: 100%;
+					height: auto;
+					@include md {
+						margin: 0 auto 0 auto;
+					}
+					@include lg {
+						margin: 0 auto 0 0;
+					}
+				}
+				.small {
+					display: none;
+					justify-content: center;
+					gap: 7px;
+					margin-top: 1rem;
+					@include sm {
+						display: flex;
+					}
+					@include md {
+						justify-content: center;
+					}
+					@include lg {
+						justify-content: start;
+					}
+				}
+			}
+			.info-actions {
+				margin-top: 30px;
+				grid-area: info-actions;
+				text-align: center;
+				@include lg {
+					margin-left: 1rem;
+					margin-top: 0;
+					text-align: start;
+				}
+				@include xl {
+					margin-left: 0;
+				}
+				.title {
+					margin-bottom: 1rem;
+					font-family: $font-poppins;
+					font-size: 24px;
+					color: $color-dark-1;
+				}
+				.breadtext {
+					margin-bottom: 2rem;
+				}
+				.reviews {
+					display: flex;
+					justify-content: center;
+					gap: 1rem;
+					@include lg {
+						justify-content: flex-start;
+					}
+				}
+				.price {
+					margin-top: 1rem;
+					font-size: 24px;
+					font-family: $font-poppins;
+					color: $color-dark-1;
+				}
+				.cart-actions {
+					display: grid;
+					place-items: center;
+					grid-template-columns: 1fr 1fr;
+					grid-template-rows: 1fr 1fr;
+					grid-template-areas:
+						'counter button'
+						'color-selector sku ';
+					@include lg {
+						place-items: start;
+					}
+					.counter {
+						grid-area: counter;
+						display: flex;
+						width: 120px;
+						height: 40px;
+						text-align: center;
+						.counter-border {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border: 1px solid $color-dark-4;
+							height: 100%;
+							width: 100%;
+							cursor: pointer;
+							&:hover {
+								background-color: $color-dark-4;
+							}
+						}
+					}
+					button {
+						grid-area: button;
+					}
+
+					.color-selector {
+						grid-area: color-selector;
+						flex-direction: row;
+						display: flex;
+						gap: 5px;
+						cursor: pointer;
+						margin-top: 1rem;
+
+						.red {
+							width: 18px;
+							height: 18px;
+							border-radius: 50%;
+							background-color: $color-theme-1;
+						}
+						.yellow {
+							width: 18px;
+							height: 18px;
+							border-radius: 50%;
+							background-color: #f9c936;
+						}
+						.blue {
+							width: 18px;
+							height: 18px;
+							border-radius: 50%;
+							background-color: #92b8b9;
+						}
+					}
+					.sku {
+						grid-area: sku;
+						text-align: center;
+						margin-top: 0.8rem;
+					}
+				}
+				.wishlist {
+					margin-top: 0.8rem;
+					margin-bottom: 1rem;
+					font-size: 16px;
+				}
+			}
+		}
+		.menu-bar {
+			justify-content: space-between;
+			height: 50px;
+			margin-top: 2rem;
+			display: grid;
+			row-gap: 5px;
+			grid-template-columns: 1fr 1fr;
+			@include lg {
+				display: flex;
+				row-gap: 0;
+			}
+			.menu-button {
+				display: flex;
+				height: auto;
+				border: 1px solid $color-dark-4;
+				width: 100%;
+				justify-content: center;
+				align-items: center;
+				&:hover {
+					background-color: $color-theme-1;
+					color: $color-white;
+				}
+			}
+		}
+
+		.detailed {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto 1fr;
+			grid-template-areas:
+				'title'
+				'img'
+				'long-format-text';
+			text-align: center;
+			@include lg {
+				grid-template-columns: 1fr auto;
+				grid-template-rows: auto 1fr;
+				grid-template-areas:
+					'title title'
+					'long-format-text img';
+				text-align: start;
+			}
+			.title {
+				font-size: 24px;
+				font-family: $font-poppins;
+				font-weight: $font-weight-semibold;
+				margin: 1rem 0;
+				grid-area: title;
+			}
+			.long-format-text {
+				grid-area: long-format-text;
+				@include lg {
+					margin-right: 1rem;
+				}
+			}
+			img {
+				grid-area: img;
+				margin: auto;
+				margin-bottom: 1rem;
+				width: 100%;
+				height: auto;
+				@include lg {
+					margin: 0;
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+	}
+}

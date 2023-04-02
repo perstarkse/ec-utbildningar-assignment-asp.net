@@ -68,6 +68,9 @@ button {
 
 header {
     padding: 15px 0;
+    position: fixed;
+    background: #ffffff;
+    width: 100%;
 }
 
 @media (min-width: 992px) {
@@ -147,11 +150,15 @@ header .menu .menu-icons {
     right: 0;
     left: 0;
     text-align: center;
+    background-color: #292929;
+    padding: 10px 0 10px;
 }
 
 @media (min-width: 992px) {
     header .menu .menu-icons {
         position: static;
+        background-color: transparent;
+        padding: 0 0 0 0;
     }
 }
 

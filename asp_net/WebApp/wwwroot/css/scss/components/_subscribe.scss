@@ -1,0 +1,54 @@
+@import '../core/_fonts.scss';
+@import '../core/_mixins';
+@import '../core/_colors';
+
+.subscribe {
+	.container-fluid {
+		background-color: $color-dark-4;
+		padding: 80px 0;
+	}
+	.container {
+		display: grid;
+		background-color: $color-white;
+		padding: 70px 30px 120px 30px;
+		@include md {
+			padding: 70px 60px 120px 60px;
+		}
+		@include lg {
+			padding: 70px 160px;
+		}
+	}
+	.input-holder {
+		position: relative;
+		height: 50px;
+		input {
+			width: 100%;
+			height: 100%;
+			border: 1px solid $color-dark-4;
+			text-align: center;
+			border-radius: 25px;
+			@include md {
+				padding-left: 2rem;
+				text-align: start;
+			}
+		}
+
+		button {
+			border: none;
+			border-radius: 25px;
+			position: relative;
+			width: 100%;
+			margin-top: 5px;
+			height: 50px;
+			right: 0;
+			word-wrap: break-word;
+			background-color: $color-theme-1;
+			color: $color-white;
+			@include md {
+				position: absolute;
+				width: 300px;
+				margin-top: 0;
+			}
+		}
+	}
+}

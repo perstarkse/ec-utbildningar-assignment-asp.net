@@ -1,8 +1,96 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_banner.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_banner.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_collection.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_collection.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_collectionItem.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_collectionItem.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_footer.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_footer.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_header.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_header.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_productDetails.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_productDetails.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_relatedProductsSmallImages.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_relatedProductsSmallImages.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_showcase.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_showcase.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_subscribe.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_subscribe.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_topselling.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_topselling.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_uptosell.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_uptosell.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_userForm.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_userForm.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_utilities.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_utilities.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\core\\_colors.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\core\\_colors.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\core\\_fonts.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\core\\_fonts.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\core\\_mixins.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\core\\_mixins.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\core\\_onePage.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\core\\_onePage.scss"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\style.css",
+      "PackagePath": "staticwebassets\\css\\scss\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\style.min.css",
+      "PackagePath": "staticwebassets\\css\\scss\\style.min.css"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\style.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\style.scss"
+    },
+    {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\style.min.css",
+      "PackagePath": "staticwebassets\\css\\style.min.css"
     },
     {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\favicon.ico",
@@ -19,6 +107,10 @@
     {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\images\\placeholders\\1920x300.svg",
       "PackagePath": "staticwebassets\\images\\placeholders\\1920x300.svg"
+    },
+    {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\images\\placeholders\\1920x300_products.svg",
+      "PackagePath": "staticwebassets\\images\\placeholders\\1920x300_products.svg"
     },
     {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\images\\placeholders\\200x122.svg",

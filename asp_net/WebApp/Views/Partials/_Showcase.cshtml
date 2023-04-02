@@ -1,10 +1,15 @@
-﻿<section class="showcase">
+﻿@model ShowcaseViewModel
+
+<section class="showcase menu-spacer">
 	<div class="container">
 		<div class="content">
-			<div class="ingress">WELCOME TO BMERKETO SHOP</div>
-			<div class="title">Exclusive Chair Gold Collection</div>
-			<button class="btn-theme">SHOP NOW</button>
+			<div class="ingress">@Model?.Ingress</div>
+			<div class="title">@Model?.Title</div>
+			@if (!string.IsNullOrEmpty(Model?.LinkUrl) && !string.IsNullOrEmpty(Model?.LinkContent))
+			{
+				<a href="@Model.LinkUrl" class="btn-theme btn-standard">@Model.LinkContent</a>
+			}
 		</div>
-		<img src="images/placeholders/625x647.svg" alt="" />
+		<img src="@Model?.ImageUrl" alt="@Model?.Title" />
 	</div>
 </section>
