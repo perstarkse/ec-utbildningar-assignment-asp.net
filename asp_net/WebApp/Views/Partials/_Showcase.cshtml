@@ -1,15 +1,20 @@
-﻿@model ShowcaseViewModel
-
-<section class="showcase menu-spacer">
-	<div class="container">
-		<div class="content">
-			<div class="ingress">@Model?.Ingress</div>
-			<div class="title">@Model?.Title</div>
-			@if (!string.IsNullOrEmpty(Model?.LinkUrl) && !string.IsNullOrEmpty(Model?.LinkContent))
-			{
-				<a href="@Model.LinkUrl" class="btn-theme btn-standard">@Model.LinkContent</a>
-			}
+﻿@inject ShowcaseService showcaseService
+@{
+	var showcase = showcaseService.GetLatest();
+}
+@if(showcase != null)
+{
+	<section class="showcase menu-spacer">
+		<div class="container">
+			<div class="content">
+				<div class="ingress">@showcase?.Ingress</div>
+				<div class="title">@showcase?.Title</div>
+				@if (!string.IsNullOrEmpty(showcase?.Button?.Url) && !string.IsNullOrEmpty(showcase?.Button?.Content))
+				{
+					<a href="@showcase?.Button?.Url" class="btn-theme btn-standard">@showcase?.Button?.Content</a>
+				}
+			</div>
+			<img src="@showcase?.ImageUrl" alt="@showcase?.Title" />
 		</div>
-		<img src="@Model?.ImageUrl" alt="@Model?.Title" />
-	</div>
-</section>
+	</section>
+}

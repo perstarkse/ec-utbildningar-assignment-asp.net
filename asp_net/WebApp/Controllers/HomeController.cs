@@ -7,17 +7,14 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        ViewData["Title"] = "Home";
-
-        var showcase = new ShowcaseViewModel()
+        var viewmodel = new HomeIndexViewModel
         {
-            Ingress = "WELCOME TO BMERKETO SHOP",
-            Title = "Exclusive Chair Gold Collection",
-            LinkUrl = "#",
-            LinkContent = "SHOP NOW",
-            ImageUrl = "images/placeholders/625x647.svg",
-        };
+			BestCollection = new GridCollectionViewModel
+            {
+				Title = "Best Collection"
+			}
+		};
 
-        return View(showcase);
+        return View(viewmodel);
     }
 }
