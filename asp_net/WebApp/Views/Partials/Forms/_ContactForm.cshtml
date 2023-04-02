@@ -1,39 +1,39 @@
-﻿<section class="contact-form">
-    <div class="container">
-        <div class="title">Write something</div>
+﻿<section class="userForm">
+	<div class="container">
+		<div class="title">Write something</div>
+		<form action="">
+			<div class="name">
+				<div>
+					<label for="firstName">Your Name*</label>
+					<input type="text" name="firstName" />
+				</div>
+				<div>
+					<label for="email">Email*</label>
+					<input type="email" name="email" />
+				</div>
+			</div>
+			<div class="optionals">
+				<div>
+					<label for="mobile">Mobile (optional)</label>
+					<input type="text" name="mobile" />
+				</div>
+				<div>
+					<label for="company">Company (optional)</label>
+					<input type="text" name="company" />
+				</div>
+			</div>
+			<label for="message">Something write*</label>
+			<textarea class="textBox" name="message"></textarea>
 
-        <form novalidate>
-            <div class="name form-group">
-                <label for="name">Your Name*</label>
-                <input id="name" type="text" class="invalid" required>
-                <span class="error">Your name is required</span>
-            </div>
-            <div class="email form-group">
-                <label for="email">Your Email*</label>
-                <input id="email" type="text" class="invalid">
-                <span class="error">Your email is required</span>
-            </div>
-            <div class="phoneNumber form-group">
-                <label for="phone">Phone Number (optional)</label>
-                <input id="phone" type="text">
-            </div>
-            <div class="companyName form-group">
-                <label for="company">Company (optional)</label>
-                <input id="company" type="text">
-            </div>
-            <div class="message form-group">
-                <label for="message">Message*</label>
-                <textarea id="message" class="invalid"></textarea>
-                <span class="error">Message is required</span>
-            </div>
-            <div class="terms form-checkbox-group">
-                <label class="custom-checkbox">
-                    Save my name, email in the this browser for the next time I comment.
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <button class="btn-theme">Submit</button>
-        </form>
-    </div>
+			<div class="termHolder">
+				<input class="terms" type="checkbox" name="terms" />
+
+				<label for="terms">
+					Save my name, email and website in this browser for the next time
+					I comment
+				</label>
+			</div>
+			<button class="btn-theme">Submit</button>
+		</form>
+	</div>
 </section>

@@ -1,31 +1,20 @@
-<section class="contact-form">
-    <div class="container">
-        <div class="title">Please Login To Your Account</div>
-        <form action="" novalidate>
-            <div class="email form-group">
-                <div class="labelUtilsLeft">
-                    <label for="email">Email*</label>
-                    <a href="#">Don't have an account yet?</a>
-                </div>
-                <input type="email" name="email" required />
-                <span class="error">Email is required</span>
-            </div>
-            <div class="password form-group">
-                <div class="labelUtilsRight">
-                    <label for="password">Password*</label>
-                    <a href="#">Forgot your password?</a>
-                </div>
-                <input type="password" name="password" required />
-                <span class="error">Password is required</span>
-            </div>
-            <div class="terms form-checkbox-group">
-                <label class="custom-checkbox">
-                    Please leave me logged in
-                    <input type="checkbox" name="leaveSignedIn" />
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <button class="btn-theme">Submit</button>
-        </form>
-    </div>
+<section class="userForm onePage">
+	<div class="container">
+		<div class="title">Please Login To Your Account</div>
+		<form action="">
+			<div class="labelUtilsLeft">
+				<label for="email">Email*</label><a asp-controller="Account" asp-action="SignUp">Don't have an account yet?</a>
+			</div>
+			<input type="email" name="email" />
+			<div class="labelUtilsRight">
+				<label for="password">Password*</label><a href="#">Forgot your password?</a>
+			</div>
+			<input type="password" name="password" />
+			<div class="termHolder">
+				<input class="leaveSignedIn" type="checkbox" name="leaveSignedIn" />
+				<label for="leaveSignedIn">Please leave me logged in</label>
+			</div>
+			<button class="btn-theme">Submit</button>
+		</form>
+	</div>
 </section>
