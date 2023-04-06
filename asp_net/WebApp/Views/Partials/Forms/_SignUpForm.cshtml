@@ -1,64 +1,66 @@
+@model RegisterViewModel
+
 <section class="userForm onePage menu-spacer">
     <div class="container">
         <div class="title">Please Register Your New Account</div>
-        <form action="" novalidate>
+
+        <form method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="name">
                 <div class="form-group">
-                    <label for="firstName">First Name*</label>
-                    <input type="text" name="firstName" class="invalid" required />
-                    <span class="error">First name is required</span>
+                    <label for="firstName" asp-for="FirstName"></label>
+                    <input asp-for="FirstName" type="text" name="firstName" class="invalid" required />
+                     <span class="error" asp-validation-for="FirstName"></span> 
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Last Name*</label>
-                    <input type="text" name="lastName" class="invalid" required />
-                    <span class="error">Last name is required</span>
+                    <label for="lastName" asp-for="LastName"></label>
+                    <input asp-for="LastName" type="text" name="lastName" class="invalid" required />
+                     <span class="error" asp-validation-for="LastName"></span> 
                 </div>
             </div>
             <div class="form-group">
-                <label for="streetName">Street Name*</label>
-                <input type="text" name="streetName" class="invalid" required />
-                <span class="error">Street name is required</span>
+                <label asp-for="StreetName" for="streetName"></label>
+                <input asp-for="StreetName" type="text" name="streetName" />
             </div>
             <div class="addressOptions">
                 <div class="form-group">
-                    <label for="postalCode">Postal Code*</label>
-                    <input type="text" name="postalCode" class="invalid" required />
-                    <span class="error">Postal code is required</span>
+                    <label asp-for="PostalCode" for="postalCode"></label>
+                    <input asp-for="PostalCode" type="text" name="postalCode"/>
                 </div>
                 <div class="form-group">
-                    <label for="city">City*</label>
-                    <input type="text" name="city" class="invalid" required />
-                    <span class="error">City is required</span>
+                    <label asp-for="City" for="city"></label>
+                    <input asp-for="City" type="text" name="city" />
                 </div>
             </div>
             <div class="optionals">
                 <div class="phoneNumber form-group">
-                    <label for="mobile">Mobile (optional)</label>
-                    <input type="text" name="mobile" />
+                    <label asp-for="PhoneNumber" for="phoneNumber"></label>
+                    <input asp-for="PhoneNumber" type="text" name="phoneNumber" />
                 </div>
                 <div class="companyName form-group">
-                    <label for="company">Company (optional)</label>
-                    <input type="text" name="company" />
+                    <label asp-for="Company" for="company"></label>
+                    <input asp-for="Company" type="text" name="company" />
                 </div>
             </div>
             <div class="email form-group">
-                <label for="email">Email*</label>
-                <input type="email" name="email" class="invalid" required />
-                <span class="error">Email is required</span>
+                <label asp-for ="Email" for="email"></label>
+                <input asp-for="Email" type="email" name="email" class="invalid" required />
+                 <span class="error" asp-validation-for="Email"></span> 
             </div>
             <div class="password form-group">
-                <label for="password">Password*</label>
-                <input type="password" name="password" class="invalid" required />
-                <span class="error">Password is required</span>
+                <label asp-for="Password" for="password"></label>
+                <input asp-for="Password" type="password" name="password" class="invalid" required />
+                 <span class="error" asp-validation-for="Password"></span> 
             </div>
             <div class="password form-group">
-                <label for="confirmPassword">Confirm Password*</label>
-                <input type="password" name="confirmPassword" class="invalid" required />
-                <span class="error">Confirm password is required</span>
+                <label asp-for="ConfirmPassword" for="confirmPassword"></label>
+                <input asp-for="ConfirmPassword" type="password" name="confirmPassword" class="invalid" required />
+                 <span class="error" asp-validation-for="ConfirmPassword"></span> 
             </div>
             <div class="uploadImage form-group">
-                <label for="profileImage">Upload Profile Image (optional)</label>
-                <input type="file" name="profileImage" accept="image/*" />
+                <label asp-for="ProfileImage" for="profileImage"></label>
+                <input asp-for="ProfileImage" type="file" name="profileImage" accept="image/*" />
             </div>
 
             <div class="termHolder">
@@ -67,9 +69,9 @@
                 <label for="terms">
                     I have read and accept the terms and agreements
                 </label>
-                <span class="error">You must accept the terms and agreements</span>
+                 <span class="error">You must accept the terms and agreements</span> 
             </div>
-            <button class="btn-theme">Submit</button>
+            <button type="submit" class="btn-theme">Submit</button>
         </form>
     </div>
 </section>
