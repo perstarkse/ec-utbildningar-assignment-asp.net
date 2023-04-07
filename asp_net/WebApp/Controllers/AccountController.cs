@@ -2,18 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using WebApp.Contexts;
 using WebApp.Models.Entities;
+using WebApp.Services;
 
 namespace WebApp.Controllers
 {
     public class AccountController : Controller
     {
 
-        private readonly DataContext _dataContext;
+        private readonly UserService _userService;
 
-        public AccountController(DataContext dataContext)
+        public AccountController(UserService userService)
         {
-            _dataContext = dataContext;
+            _userService = userService;
         }
+
         public IActionResult Login()
         {
             ViewData["Title"] = "Login";
@@ -28,30 +30,37 @@ namespace WebApp.Controllers
         public async Task<IActionResult> SignUp(ViewModels.RegisterViewModel registerViewModel) {
             if (ModelState.IsValid)
             {
-                try
+                if (await _userService.CheckIfUserExists(x => x.Email == registerViewModel.Email))
                 {
-                    if (!await _dataContext.Users.AnyAsync(x => x.Email == registerViewModel.Email))
-                    {
-                        UserEntity userEntity = registerViewModel;
-                        ProfileEntity profileEntity = registerViewModel;
-
-                        _dataContext.Users.Add(userEntity);
-                        await _dataContext.SaveChangesAsync();
-
-                        profileEntity.UserId = userEntity.Id;
-                        _dataContext.Profiles.Add(profileEntity);
-                        await _dataContext.SaveChangesAsync();
-
-                        return RedirectToAction("Index", "Home");
-                    }
                     ModelState.AddModelError("", "There is already a user with the same email");
+                    return View(registerViewModel);
                 }
-                catch
+                else
                 {
+                    if (await _userService.RegisterAsync(registerViewModel))
+                    {
+                        return RedirectToAction("Login", "Account");
+                    }
+
                     ModelState.AddModelError("", "Something went wrong when creating user and profile");
                 }
             }
             return View(registerViewModel);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn(ViewModels.LogInViewModel logInViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                if(await _userService.LogInAsync(logInViewModel))
+                {
+                    return RedirectToAction("Index", "Account");
+                }
+                ModelState.AddModelError("", "Invalid login attempt");
+            }
+            return View(logInViewModel);
         }
     }
 }

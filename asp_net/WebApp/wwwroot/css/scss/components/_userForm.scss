@@ -47,77 +47,77 @@
 
 			input {
 				width: 100%;
-				margin-bottom: 1rem;
 			}
 
-			.labelUtilsLeft {
-				display: flex;
+		}
+
+		.labelUtilsLeft {
+			display: flex;
+			justify-content: space-between;
+			gap: 1rem;
+
+			@include md {
+				justify-content: flex-start;
+			}
+		}
+
+		.labelUtilsRight {
+			display: flex;
+			justify-content: space-between;
+
+			@include md {
 				justify-content: space-between;
-				gap: 1rem;
+			}
+		}
 
-				@include md {
-					justify-content: flex-start;
-				}
+		.name,
+		.addressOptions,
+		.optionals {
+			display: grid;
+			grid-template-columns: 1fr;
+
+			@include md {
+				grid-template-columns: 1fr 1fr;
 			}
 
-			.labelUtilsRight {
-				display: flex;
-				justify-content: space-between;
+			grid-gap: 10px;
 
-				@include md {
-					justify-content: space-between;
-				}
-			}
-
-			.name,
-			.addressOptions,
-			.optionals {
-				display: grid;
-				grid-template-columns: 1fr;
-
-				@include md {
-					grid-template-columns: 1fr 1fr;
-				}
-
-				grid-gap: 10px;
-
-				label {
-					display: block;
-				}
-			}
-
-			.termHolder {
-				display: flex;
-				gap: 1rem;
-			}
-
-			.terms,
-			.leaveSignedIn {
-				width: auto;
+			label {
 				display: block;
-
-				@include md {
-					width: auto;
-					display: flex;
-				}
 			}
+		}
 
-			.textBox {
-				width: 100%;
-				min-height: 150px;
-				margin-bottom: 1rem;
-			}
+		.termHolder {
+			display: flex;
+			gap: 1rem;
+		}
 
-			button {
+		.terms,
+		.leaveSignedIn {
+			width: auto;
+			display: block;
+
+			@include md {
+				width: auto;
 				display: flex;
-				margin-left: auto;
-				margin-right: auto;
-				margin-top: 0.8rem;
+			}
+		}
 
-				@include md {
-					margin-left: 0;
-					margin-right: 0;
-				}
+		.textBox {
+			width: 100%;
+			min-height: 150px;
+			margin-bottom: 1rem;
+		}
+
+		button {
+			display: flex;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 0.8rem;
+
+			@include md {
+				margin-left: 0;
+				margin-right: 0;
 			}
 		}
 	}

@@ -24,7 +24,7 @@ namespace WebApp.Models.Entities
 
             for(int i = 0; i < hash.Length; i++)
             {
-                if (hash[i] != password[i])
+                if (hash[i] != Password[i])
                 {
                     return false;
                 }

@@ -1,15 +1,21 @@
+@model LogInViewModel
+
 <section class="userForm onePage menu-spacer">
 	<div class="container">
 		<div class="title">Please Login To Your Account</div>
-		<form action="">
+		<form method="post" novalidate>
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
 			<div class="labelUtilsLeft">
-				<label for="email">Email*</label><a asp-controller="Account" asp-action="SignUp">Don't have an account yet?</a>
+				<label asp-for="Email" for="email"></label><a asp-controller="Account" asp-action="SignUp">Don't have an account yet?</a>
 			</div>
-			<input type="email" name="email" />
+			 <input asp-for="Email" type="email" name="email" class="invalid" required />
+			<span class="error" asp-validation-for="Email"></span>
 			<div class="labelUtilsRight">
-				<label for="password">Password*</label><a href="#">Forgot your password?</a>
+				<label asp-for="Password" for="password"></label><a href="#">Forgot your password?</a>
 			</div>
-			<input type="password" name="password" />
+			<input asp-for="Password" type="password" name="password" class="invalid" required />
+			<span class="error" asp-validation-for="Password"></span>
 			<div class="termHolder">
 				<input class="leaveSignedIn" type="checkbox" name="leaveSignedIn" />
 				<label for="leaveSignedIn">Please leave me logged in</label>

@@ -928,75 +928,74 @@ footer .copyright {
 }
 .userForm .container form input {
   width: 100%;
-  margin-bottom: 1rem;
 }
-.userForm .container form .labelUtilsLeft {
+.userForm .container .labelUtilsLeft {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
 @media (min-width: 768px) {
-  .userForm .container form .labelUtilsLeft {
+  .userForm .container .labelUtilsLeft {
     justify-content: flex-start;
   }
 }
-.userForm .container form .labelUtilsRight {
+.userForm .container .labelUtilsRight {
   display: flex;
   justify-content: space-between;
 }
 @media (min-width: 768px) {
-  .userForm .container form .labelUtilsRight {
+  .userForm .container .labelUtilsRight {
     justify-content: space-between;
   }
 }
-.userForm .container form .name,
-.userForm .container form .addressOptions,
-.userForm .container form .optionals {
+.userForm .container .name,
+.userForm .container .addressOptions,
+.userForm .container .optionals {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10px;
 }
 @media (min-width: 768px) {
-  .userForm .container form .name,
-  .userForm .container form .addressOptions,
-  .userForm .container form .optionals {
+  .userForm .container .name,
+  .userForm .container .addressOptions,
+  .userForm .container .optionals {
     grid-template-columns: 1fr 1fr;
   }
 }
-.userForm .container form .name label,
-.userForm .container form .addressOptions label,
-.userForm .container form .optionals label {
+.userForm .container .name label,
+.userForm .container .addressOptions label,
+.userForm .container .optionals label {
   display: block;
 }
-.userForm .container form .termHolder {
+.userForm .container .termHolder {
   display: flex;
   gap: 1rem;
 }
-.userForm .container form .terms,
-.userForm .container form .leaveSignedIn {
+.userForm .container .terms,
+.userForm .container .leaveSignedIn {
   width: auto;
   display: block;
 }
 @media (min-width: 768px) {
-  .userForm .container form .terms,
-  .userForm .container form .leaveSignedIn {
+  .userForm .container .terms,
+  .userForm .container .leaveSignedIn {
     width: auto;
     display: flex;
   }
 }
-.userForm .container form .textBox {
+.userForm .container .textBox {
   width: 100%;
   min-height: 150px;
   margin-bottom: 1rem;
 }
-.userForm .container form button {
+.userForm .container button {
   display: flex;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.8rem;
 }
 @media (min-width: 768px) {
-  .userForm .container form button {
+  .userForm .container button {
     margin-left: 0;
     margin-right: 0;
   }
