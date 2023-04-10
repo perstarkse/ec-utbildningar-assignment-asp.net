@@ -13,11 +13,30 @@ namespace WebApp.Controllers
             _productsService= productsService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewData["Title"] = "Products";
 
-            return View();
+            var products = await _productsService.GetAllAsync();
+
+            var AllProducts = new GridCollectionViewModel
+            {
+                Title = "All Products",
+                LoadMore = false,
+                GridItems = new List<GridCollectionItemViewModel>()
+            };
+            foreach (var product in products)
+            {
+                AllProducts.GridItems.Add(new GridCollectionItemViewModel
+                {
+                    Id = product.Id.ToString(),
+                    Title = product.Name,
+                    Price = product.Price.ToString(),
+                    ImageUrl = "images/placeholders/270x295.svg" //
+                });
+            }
+
+            return View(AllProducts);
         }
 
         public IActionResult Search()
