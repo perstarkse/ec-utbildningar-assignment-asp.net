@@ -1,0 +1,10 @@
+﻿<div class="onePage container menu-spacer">
+    <div class="d-grid">
+        @User.Identity?.Name
+    </div>
+    @if (User.IsInRole("admin"))
+    {
+        <a class="link mt-5" asp-controller="Products" asp-action="Register">Create new products</a>
+    }
+    <a class="link mt-5" asp-controller="Account" asp-action="SignOut">Sign Out</a>
+</div>

@@ -3,4 +3,7 @@
 @using WebApp.Services;
 @inject ShowcaseService showcaseService
 @inject ProductsService productsService
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
 
