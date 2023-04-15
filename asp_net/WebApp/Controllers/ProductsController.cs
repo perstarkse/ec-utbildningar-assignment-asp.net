@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApp.Services;
 using WebApp.ViewModels;
 
@@ -15,7 +16,7 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewData["Title"] = "Products";
+            ViewData["Title"] = "All Products";
 
             var products = await _productsService.GetAllAsync();
 
@@ -32,7 +33,7 @@ namespace WebApp.Controllers
                     Id = product.Id.ToString(),
                     Title = product.Name,
                     Price = product.Price.ToString(),
-                    ImageUrl = "images/placeholders/270x295.svg" //
+                    ImageUrl = "images/placeholders/270x295.svg" 
                 });
             }
 
@@ -44,10 +45,12 @@ namespace WebApp.Controllers
             ViewData["Title"] = "Search for products";
             return View();
         }
+        [Authorize(Roles = "admin")]
         public IActionResult Register()
         {
             return View();
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Register(ProductRegistrationViewModel productRegistrationViewModel)
         {

@@ -16,8 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\p\source\ec-utbildningar-assignemnt-asp_net\asp_net\WebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Account/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWduSW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Account/SignUp.cshtml]

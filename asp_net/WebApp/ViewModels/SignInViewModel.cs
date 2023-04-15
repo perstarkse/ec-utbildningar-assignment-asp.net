@@ -2,7 +2,7 @@
 
 namespace WebApp.ViewModels
 {
-    public class LogInViewModel
+    public class SignInViewModel
     {
         [Required(ErrorMessage = "You must enter a email")]
         [Display(Name = "Email")]
@@ -11,5 +11,7 @@ namespace WebApp.ViewModels
         [Required(ErrorMessage = "You must enter a password")]
         [Display(Name = "Password")]
         public string Password { get; set; } = null!;
+
+        public bool RememberMe { get; set;} = false;
     }
 }
