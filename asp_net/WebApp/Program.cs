@@ -35,6 +35,6 @@ using (var scope = app.Services.CreateScope())
     var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
     await roleSeeder.SeedRoles();
 }
-// Function above seeds user roles. Must assign admin manually in DB to user
+// Function above seeds user roles.
 
 app.Run();

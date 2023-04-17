@@ -31,7 +31,16 @@ namespace WebApp.Services
                 _identityContext.UserProfiles.Add(profileEntity);
                 await _identityContext.SaveChangesAsync();
 
-                await _userManager.AddToRoleAsync(identityUser, "user");
+                var usersInRole = await _userManager.GetUsersInRoleAsync("admin");
+                if (!usersInRole.Any())
+                {
+                    await _userManager.AddToRoleAsync(identityUser, "admin");
+                }
+                else 
+                { 
+                    await _userManager.AddToRoleAsync(identityUser, "user"); 
+                }
+
                 return true;
             }
             catch

@@ -29,6 +29,12 @@ namespace WebApp.Services
             var productEntity = await _context.Products.FirstOrDefaultAsync(predicate);
             return productEntity!;
         }
+        public async Task<List<CategoryEntity>> GetAllCategoriesAsync()
+        {
+            var dbItems = await _context.Categories.ToListAsync();
+        
+            return dbItems;
+        }
 
         public async Task<IEnumerable<ProductModel>> GetAllAsync ()
         {

@@ -15,6 +15,10 @@ namespace WebApp.ViewModels
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        public int? CategoryId { get; set; }
+
+        public List<CategoryEntity> Categories { get; set; } = new List<CategoryEntity>();
+
         public static implicit operator ProductEntity(ProductRegistrationViewModel productRegistrationViewModel)
         {
             return new ProductEntity
@@ -22,6 +26,7 @@ namespace WebApp.ViewModels
                 Name = productRegistrationViewModel.Name,
                 Description = productRegistrationViewModel.Description,
                 Price = productRegistrationViewModel.Price,
+                CategoryId = productRegistrationViewModel?.CategoryId
             };
         }
     }

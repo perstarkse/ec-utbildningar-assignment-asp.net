@@ -6,23 +6,28 @@
         <div class="title">Please Register Your New Product</div>
             <form method="post" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="mb-3">
-                        <label asp-for="Name"></label>
-                        <input asp-for="Name" type="text" required/>
-                        <span class="error" asp-validation-for="Name"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Description"></label>
-                        <textarea style="display:block; width:100%" asp-for="Description" rows="4"></textarea>
-                    </div>
-                    <div class="mb-3">
-                   <label asp-for="Price"></label>
-                <input asp-for="Price" type="text" required/>
-                <span class="error" asp-validation-for="Price"></span>
-                    </div>
-                   <button type="submit" class="btn-theme">Submit</button>
+                <div class="mb-3">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" required/>
+                    <span class="error" asp-validation-for="Name"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description"></label>
+                    <textarea style="display:block; width:100%" asp-for="Description" rows="4"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" type="text" required/>
+                    <span class="error" asp-validation-for="Price"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CategoryId">Category</label>
+                    <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))" style="width: 100%;">
+                        <option value="">Select a category</option>
+                    </select>
+                    <span class="error" asp-validation-for="CategoryId"></span>
+                </div>
+                 <button type="submit" class="btn-theme">Submit</button>
              </form>
-            </div>
         </div>
-    </div>
 </section>

@@ -46,9 +46,14 @@ namespace WebApp.Controllers
             return View();
         }
         [Authorize(Roles = "admin")]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
-            return View();
+            var categories = await _productsService.GetAllCategoriesAsync();
+            var viewModel = new ProductRegistrationViewModel
+            {
+                Categories = categories
+            };
+            return View(viewModel);
         }
         [Authorize(Roles = "admin")]
         [HttpPost]
