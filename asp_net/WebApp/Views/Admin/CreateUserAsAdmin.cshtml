@@ -1,0 +1,47 @@
+﻿@model CreateUserAsAdminViewModel
+
+<section class="userForm onePage menu-spacer">
+    <div class="container">
+<div class="title">Create New User</div>
+<form method="post" novalidate>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="name">
+        <div class="form-group">
+            <label for="firstName" asp-for="FirstName"></label>
+            <input asp-for="FirstName" type="text" name="firstName" class="invalid" required />
+            <span class="error" asp-validation-for="FirstName"></span>
+        </div>
+        <div class="form-group">
+            <label for="lastName" asp-for="LastName"></label>
+            <input asp-for="LastName" type="text" name="lastName" class="invalid" required />
+            <span class="error" asp-validation-for="LastName"></span>
+        </div>
+    </div>
+    <div class="email form-group">
+        <label asp-for="Email" for="email"></label>
+        <input asp-for="Email" type="email" name="email" class="invalid" required />
+        <span class="error" asp-validation-for="Email"></span>
+    </div>
+    <div class="password form-group">
+        <label asp-for="Password" for="password"></label>
+        <input asp-for="Password" type="password" name="password" class="invalid" required />
+        <span class="error" asp-validation-for="Password"></span>
+    </div>
+    <div class="password form-group">
+        <label asp-for="ConfirmPassword" for="confirmPassword"></label>
+        <input asp-for="ConfirmPassword" type="password" name="confirmPassword" class="invalid" required />
+        <span class="error" asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserRole">Role</label>
+        <select asp-for="UserRole" class="form-control">
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+        </select>
+        <span class="error" asp-validation-for="UserRole"></span>
+    </div>
+
+    <button type="submit" class="btn-theme">Submit</button>
+</form>
+    </div>
+</section>

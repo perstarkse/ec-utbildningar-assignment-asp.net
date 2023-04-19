@@ -40,7 +40,10 @@ namespace WebApp.Controllers
         public IActionResult SignUp()
         {
             ViewData["Title"] = "Sign up";
-            return View();
+            RegisterViewModel SignUp = new RegisterViewModel(){
+                Title = "Please Register Your New Account",
+            };
+            return View(SignUp);
         }
         [HttpPost]
         public async Task<IActionResult> SignUp(RegisterViewModel registerViewModel) {

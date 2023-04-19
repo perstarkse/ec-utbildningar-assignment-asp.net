@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\scss\\components\\_subscribe.scss"
     },
     {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_tables.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_tables.scss"
+    },
+    {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_topselling.scss",
       "PackagePath": "staticwebassets\\css\\scss\\components\\_topselling.scss"
     },

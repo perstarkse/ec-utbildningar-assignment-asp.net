@@ -60,6 +60,7 @@ namespace WebApp.Controllers
 
             return View(model);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserViewModel model)
         {
@@ -99,5 +100,58 @@ namespace WebApp.Controllers
             model.AvailableRoles = roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
             return View(model);
         }
+        [Authorize]
+        public IActionResult CreateUserAsAdmin()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> CreateUserAsAdmin(CreateUserAsAdminViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    if (!await _roleManager.RoleExistsAsync(model.UserRole))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(model.UserRole));
+                    }
+
+                    var roleResult = await _userManager.AddToRoleAsync(user, model.UserRole);
+
+                    if (roleResult.Succeeded)
+                    {
+                        return RedirectToAction("UserAdministration", "Admin");
+                    }
+                    else
+                    {
+                        foreach (var error in roleResult.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+
+            return View(model);
+        }
+
     }
 }

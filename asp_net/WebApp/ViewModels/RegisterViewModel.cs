@@ -11,6 +11,8 @@ namespace WebApp.ViewModels
     public class RegisterViewModel
 
 	{
+        public string? Title { get; set; }
+
 		[Required(ErrorMessage = "You must enter a first name")]
 		[Display(Name = "First name")]
         //convert the regex to match swedish names as well
@@ -53,6 +55,9 @@ namespace WebApp.ViewModels
 
         [Display(Name = "Company")]
         public string? Company { get; set; }
+
+        public bool RequireTerms { get; set; } = true;
+
 
         public static implicit operator IdentityUser(RegisterViewModel registerViewModel)
         {

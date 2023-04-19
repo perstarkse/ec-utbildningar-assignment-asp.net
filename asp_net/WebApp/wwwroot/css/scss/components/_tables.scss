@@ -1,0 +1,14 @@
+.custom-table {
+    width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+    text-align: left;
+    width: 33%;
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+    text-align: right;
+}

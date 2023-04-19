@@ -50,6 +50,21 @@ a:hover {
   color: #fa3150;
 }
 
+.btn-replacement {
+  cursor: pointer;
+  border: 1px solid #000000;
+  padding: 10px 35px;
+  background-color: transparent;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-replacement:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
 button {
   cursor: pointer;
   border: 1px solid #000000;
@@ -999,4 +1014,19 @@ footer .copyright {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.custom-table {
+  width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+  text-align: left;
+  width: 33%;
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+  text-align: right;
 }

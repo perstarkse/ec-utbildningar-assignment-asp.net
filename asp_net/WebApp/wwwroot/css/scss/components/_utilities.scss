@@ -19,6 +19,21 @@ a {
 		color: $color-theme-1;
 	}
 }
+.btn-replacement {
+	cursor: pointer;
+	border: 1px solid $color-dark-1;
+	padding: 10px 35px;
+	background-color: transparent;
+	color: $color-dark-1;
+	font-family: $font-poppins;
+	transition: all 0.2s;
+	text-decoration: none;
+
+	&:hover {
+		background-color: $color-dark-1;
+		color: $color-white;
+	}
+}
 
 button {
 	cursor: pointer;

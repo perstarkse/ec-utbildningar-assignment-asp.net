@@ -1,12 +1,9 @@
 @model RegisterViewModel
 
-<section class="userForm onePage menu-spacer">
-    <div class="container">
-        <div class="title">Please Register Your New Account</div>
+        <div class="title">@Model.Title</div>
 
         <form method="post" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
             <div class="name">
                 <div class="form-group">
                     <label for="firstName" asp-for="FirstName"></label>
@@ -56,22 +53,21 @@
             <div class="password form-group">
                 <label asp-for="ConfirmPassword" for="confirmPassword"></label>
                 <input asp-for="ConfirmPassword" type="password" name="confirmPassword" class="invalid" required />
-                 <span class="error" asp-validation-for="ConfirmPassword"></span> 
+                <span class="error" asp-validation-for="ConfirmPassword"></span> 
             </div>
             <div class="uploadImage form-group">
                 <label asp-for="ProfileImage" for="profileImage"></label>
                 <input asp-for="ProfileImage" type="file" name="profileImage" accept="image/*" />
             </div>
-
-            <div class="termHolder">
-                <input class="terms" type="checkbox" name="terms" required />
-
+            @if (Model.RequireTerms == true)
+            {
+             <div class="termHolder">
+            <input class="terms" type="checkbox" name="terms" required />
                 <label for="terms">
                     I have read and accept the terms and agreements
                 </label>
-                 <span class="error">You must accept the terms and agreements</span> 
+                <span class="error">You must accept the terms and agreements</span>
             </div>
+            }
             <button type="submit" class="btn-theme">Submit</button>
         </form>
-    </div>
-</section>
