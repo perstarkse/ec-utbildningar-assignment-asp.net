@@ -1,0 +1,96 @@
+﻿@model ProductAdminViewModel
+@{ViewData["Title"]  = "Product Administration";}
+<section class="onePage menu-spacer">
+    <div class="container">
+        <div class="d-flex justify-content-between mt-3">
+            <h1>Product Administration</h1>
+            <a class="btn-theme btn-replacement" asp-controller="Products" asp-action="Register">Create a new product</a>
+            <a class="btn-theme btn-replacement" asp-controller="Products" asp-action="CategoryManagement">Manage categories</a>
+
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Image URL</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <form method="post" asp-controller="Products" asp-action="EditProduct">
+                        <td><input type="text" name="Id" value="@product.Id" readonly class="form-control-plaintext" /></td>
+                        <td><input type="text" name="Name" value="@product.Name" readonly class="form-control-plaintext" /></td>
+                        <td><input type="text" name="Description" value="@product.Description" readonly class="form-control-plaintext" /></td>
+                        <td><input type="text" name="Price" value="@product.Price" readonly class="form-control-plaintext" /></td>
+                        <td>
+                            <select name="Category" class="form-control custom-select d-none" required>
+                                <option value="">Select a category</option>
+                                    @foreach (var category in Model.Categories)
+                                    {
+                                    <option value="@category.Id">@category.Name</option>
+                                    }
+                            </select>
+                        </td>
+                        <td><input type="text" name="ImageUrl" value="@product.ImageUrl" readonly class="form-control-plaintext" /></td>
+                        <td>
+                            <button type="button" class="btn btn-primary edit-btn">Edit</button>
+                            <button type="submit" class="btn btn-success save-btn d-none">Save</button>
+                        </td>
+                        </form>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        const editButtons = document.querySelectorAll('.edit-btn');
+        const saveButtons = document.querySelectorAll('.save-btn');
+
+        editButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const row = button.closest('tr');
+                const inputs = row.querySelectorAll('input[type="text"], input[type="number"]');
+
+                inputs.forEach((input) => {
+                    input.readOnly = false;
+                    input.classList.add('form-control');
+                });
+
+                button.classList.add('d-none');
+                button.nextElementSibling.classList.remove('d-none');
+            });
+        });
+
+        saveButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const row = button.closest('tr');
+                const form = row.querySelector('form');
+                const inputs = row.querySelectorAll('input[type="text"], input[type="number"]');
+
+                inputs.forEach((input) => {
+                    input.readOnly = true;
+                    input.classList.remove('form-control');
+                });
+
+                button.classList.add('d-none');
+                button.previousElementSibling.classList.remove('d-none');
+
+                form.submit();
+            });
+        });
+    </script>
+}

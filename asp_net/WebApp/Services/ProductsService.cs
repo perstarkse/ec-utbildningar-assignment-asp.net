@@ -61,5 +61,76 @@ namespace WebApp.Services
                 return false;
             }
         }
-    }       
+        public async Task<ProductEntity> GetProductByIdAsync(Guid productId)
+        {
+            return await _context.Products.FindAsync(productId);
+        }
+        public async Task<bool> SaveProductAsync(ProductEntity productEntity)
+        {
+            try
+            {
+                _context.Products.Update(productEntity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<CategoryEntity> GetCategoryByIdAsync(int id)
+        {
+            return await _context.Categories.FindAsync(id);
+        }
+
+        public async Task<bool> CreateCategoryAsync(string categoryName)
+        {
+            try
+            {
+                var newCategory = new CategoryEntity { Name = categoryName };
+                _context.Categories.Add(newCategory);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public async Task<bool> UpdateCategoryAsync(CategoryEntity category)
+        {
+            try
+            {
+                _context.Entry(category).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteCategoryAsync(int id)
+        {
+            try
+            {
+                var category = await _context.Categories.FindAsync(id);
+                if (category != null)
+                {
+                    _context.Categories.Remove(category);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+    }
 }

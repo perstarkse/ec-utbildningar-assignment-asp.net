@@ -1,0 +1,42 @@
+﻿@model CategoryManagementViewModel
+@{
+    ViewData["Title"] = "Category Management";
+}
+
+<section class="onePage menu-spacer">
+    <div class="container">
+        <div class="d-flex justify-content-between mt-3">
+            <h1>Category Management</h1>
+            <a class="btn-theme btn-replacement" asp-controller="Products" asp-action="ProductAdministration">Back to Products</a>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model.Categories)
+                {
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>
+                            <a asp-controller="Products" asp-action="EditCategory" asp-route-id="@category.Id" class="btn btn-primary">Edit</a>
+                            <a asp-controller="Products" asp-action="DeleteCategory" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <form asp-controller="Products" asp-action="CreateCategory" method="post" class="mt-3">
+            <div class="mb-3">
+                <label for="NewCategoryName">New Category</label>
+                <input type="text" name="NewCategoryName" id="NewCategoryName" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+</section>

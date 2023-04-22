@@ -36,8 +36,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Admin/ProductAdministration.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdEFkbWluaXN0cmF0aW9uLmNzaHRtbA==
+[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Admin/UserAdministration.cshtml]
@@ -120,12 +120,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX1VwVG9TZWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Products/CategoryManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ2F0ZWdvcnlNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Products/Detailed.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlsZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Products/ProductAdministration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcUHJvZHVjdEFkbWluaXN0cmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/p/source/ec-utbildningar-assignemnt-asp_net/asp_net/WebApp/Views/Products/Register.cshtml]

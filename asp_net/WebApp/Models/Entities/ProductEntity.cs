@@ -13,6 +13,7 @@ namespace WebApp.Models.Entities
 
         public int? CategoryId { get ; set; }
 
+        public string? ImageUrl { get; set; }
         public CategoryEntity? Category { get; set; }
 
         public static implicit operator ProductModel(ProductEntity productEntity)
@@ -24,6 +25,7 @@ namespace WebApp.Models.Entities
                 Description = productEntity?.Description,
                 Price = productEntity?.Price,
                 Category = productEntity?.Category?.Name,
+                ImageUrl = productEntity?.ImageUrl
             };
         }
     }
