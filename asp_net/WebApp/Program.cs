@@ -11,6 +11,7 @@ builder.Services.AddScoped<ShowcaseService>();
 builder.Services.AddScoped<ProductsService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<RoleSeeder>();
+builder.Services.AddScoped<UserService>();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(x => 
 {
     x.SignIn.RequireConfirmedAccount = false;

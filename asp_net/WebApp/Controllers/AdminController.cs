@@ -18,7 +18,7 @@ namespace WebApp.Controllers
             _roleManager = roleManager;
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> UserAdministration()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -37,7 +37,7 @@ namespace WebApp.Controllers
 
             return View(model);
         }
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
@@ -60,7 +60,7 @@ namespace WebApp.Controllers
 
             return View(model);
         }
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserViewModel model)
         {
@@ -100,13 +100,13 @@ namespace WebApp.Controllers
             model.AvailableRoles = roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
             return View(model);
         }
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public IActionResult CreateUserAsAdmin()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> CreateUserAsAdmin(CreateUserAsAdminViewModel model)
         {

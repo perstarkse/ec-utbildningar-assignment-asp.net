@@ -35,7 +35,7 @@ namespace WebApp.Controllers
                     Id = product.Id.ToString(),
                     Title = product.Name,
                     Price = product.Price.ToString(),
-                    ImageUrl = "images/placeholders/270x295.svg" 
+                    ImageUrl = product.ImageUrl != null ? product.ImageUrl : "images/placeholders/270x295.svg"
                 });
             }
 
@@ -74,7 +74,7 @@ namespace WebApp.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> ProductAdministration()
         {
-            var products = await _productsService.GetAllAsync();
+            var products = await _productsService.GetProductEntitiesAsync();
             var categories = await _productsService.GetAllCategoriesAsync();
 
             var viewModel = new ProductAdminViewModel
@@ -92,14 +92,13 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Retrieve the product and update the changes
                 var product = await _productsService.GetProductByIdAsync(editProductViewModel.Id);
                 if (product != null)
                 {
                     product.Name = editProductViewModel.Name;
                     product.Price = editProductViewModel.Price;
                     product.Description = editProductViewModel.Description;
-                    product.Category = editProductViewModel.Category;
+                    product.CategoryId = editProductViewModel.CategoryId;
                     product.ImageUrl = editProductViewModel.ImageUrl;
 
                     if (await _productsService.SaveProductAsync(product)) 

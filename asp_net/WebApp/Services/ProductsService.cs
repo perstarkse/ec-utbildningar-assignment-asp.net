@@ -36,10 +36,17 @@ namespace WebApp.Services
             return dbItems;
         }
 
+        public async Task<List<ProductEntity>> GetProductEntitiesAsync()
+        {
+            var dbItems = await _context.Products.ToListAsync();
+
+            return dbItems;
+        }
+
         public async Task<IEnumerable<ProductModel>> GetAllAsync ()
         {
             var products = new List<ProductModel>();
-            var dbItems = await _context.Products.ToListAsync();
+            var dbItems = await _context.Products.Include(p => p.Category).ToListAsync();
             foreach (var item in dbItems)
             {
                 ProductModel productModel = item;
@@ -82,6 +89,10 @@ namespace WebApp.Services
         public async Task<CategoryEntity> GetCategoryByIdAsync(int id)
         {
             return await _context.Categories.FindAsync(id);
+        }
+        public async Task<CategoryEntity> GetCategoryByNameAsync(string name)
+        {
+            return await _context.Categories.FirstOrDefaultAsync(x => x.Name == name);
         }
 
         public async Task<bool> CreateCategoryAsync(string categoryName)

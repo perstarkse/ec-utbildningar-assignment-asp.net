@@ -20,6 +20,11 @@
                     <input asp-for="Price" type="text" required/>
                     <span class="error" asp-validation-for="Price"></span>
                 </div>
+            <div class="mb-3">
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" type="text" required />
+                <span class="error" asp-validation-for="ImageUrl"></span>
+            </div>
                 <div class="mb-3">
                     <label asp-for="CategoryId">Category</label>
                     <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))" style="width: 100%;">

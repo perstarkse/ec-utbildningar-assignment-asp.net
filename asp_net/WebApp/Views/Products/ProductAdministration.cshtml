@@ -1,12 +1,12 @@
 ﻿@model ProductAdminViewModel
 @{ViewData["Title"]  = "Product Administration";}
+
 <section class="onePage menu-spacer">
     <div class="container">
         <div class="d-flex justify-content-between mt-3">
             <h1>Product Administration</h1>
             <a class="btn-theme btn-replacement" asp-controller="Products" asp-action="Register">Create a new product</a>
             <a class="btn-theme btn-replacement" asp-controller="Products" asp-action="CategoryManagement">Manage categories</a>
-
         </div>
 
         <table class="table">
@@ -31,7 +31,9 @@
                         <td><input type="text" name="Description" value="@product.Description" readonly class="form-control-plaintext" /></td>
                         <td><input type="text" name="Price" value="@product.Price" readonly class="form-control-plaintext" /></td>
                         <td>
-                            <select name="Category" class="form-control custom-select d-none" required>
+                            <input type="hidden" name="CategoryId" value="@product.CategoryId" />
+                            <input type="text" name="Category" value="@(product.Category?.Name ?? "N/A")" data-category-id="@product.CategoryId" readonly class="form-control-plaintext" />                            
+                            <select name="NewCategoryId" class="form-control custom-select d-none" required>
                                 <option value="">Select a category</option>
                                     @foreach (var category in Model.Categories)
                                     {
@@ -39,6 +41,7 @@
                                     }
                             </select>
                         </td>
+
                         <td><input type="text" name="ImageUrl" value="@product.ImageUrl" readonly class="form-control-plaintext" /></td>
                         <td>
                             <button type="button" class="btn btn-primary edit-btn">Edit</button>
@@ -62,11 +65,17 @@
             button.addEventListener('click', () => {
                 const row = button.closest('tr');
                 const inputs = row.querySelectorAll('input[type="text"], input[type="number"]');
+                const categoryInput = row.querySelector('input[name="Category"]');
+                const categorySelect = row.querySelector('select[name="NewCategoryId"]');
 
                 inputs.forEach((input) => {
                     input.readOnly = false;
                     input.classList.add('form-control');
                 });
+
+                categoryInput.classList.add('d-none');
+                categorySelect.classList.remove('d-none');
+                categorySelect.value = categoryInput.getAttribute('data-category-id'); 
 
                 button.classList.add('d-none');
                 button.nextElementSibling.classList.remove('d-none');
@@ -80,11 +89,15 @@
                 const row = button.closest('tr');
                 const form = row.querySelector('form');
                 const inputs = row.querySelectorAll('input[type="text"], input[type="number"]');
+                const categoryInputHidden = row.querySelector('input[name="CategoryId"]');
+                const newCategorySelect = row.querySelector('select[name="NewCategoryId"]');
 
                 inputs.forEach((input) => {
                     input.readOnly = true;
                     input.classList.remove('form-control');
                 });
+
+                categoryInputHidden.value = newCategorySelect.value; 
 
                 button.classList.add('d-none');
                 button.previousElementSibling.classList.remove('d-none');

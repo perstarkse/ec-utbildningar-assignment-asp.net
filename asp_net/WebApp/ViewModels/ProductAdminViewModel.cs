@@ -5,7 +5,7 @@ namespace WebApp.ViewModels
 {
     public class ProductAdminViewModel
     {
-        public List<ProductModel> Products { get; set; }
+        public List<ProductEntity> Products { get; set; }
         public List<CategoryEntity> Categories { get; set; }
     }
 }

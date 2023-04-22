@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_accountPage.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_accountPage.scss"
+    },
+    {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_banner.scss",
       "PackagePath": "staticwebassets\\css\\scss\\components\\_banner.scss"
     },

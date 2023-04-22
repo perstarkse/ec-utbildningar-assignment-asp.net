@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OpHE3Q1yGCZz8cF6PhNIfVsceWOQTBJ6cVKdbzkP6Fk=",
+  "Hash": "UZ3xqnd6SRVD6C8kwZL7ef48n9HyGFyeqlbLSl5fyIk=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -1035,6 +1035,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\p\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.5\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_accountPage.scss",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "css/scss/components/_accountPage.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\scss\\components\\_accountPage.scss"
     },
     {
       "Identity": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_banner.scss",

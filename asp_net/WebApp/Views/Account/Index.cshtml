@@ -1,10 +1,33 @@
-﻿<div class="onePage container menu-spacer">
-    <div class="d-grid">
-        @User.Identity?.Name
+﻿@model UserProfileViewModel
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<section class="onePage menu-spacer">
+    <div class="container">
+        <div class="account-information">
+            <h2>
+                @User.Identity?.Name
+                @if (User.IsInRole("admin"))
+                {
+                    <span class="admin-badge">Admin</span>
+                }
+            </h2>
+            <p>Full Name: @Model.FullName</p>
+            <p>Phone Number: @Model.PhoneNumber</p>
+            <p>Company: @Model.Company</p>
+            <p>Streetname: @Model.StreetName</p>
+            <p>City: @Model.City</p>
+            <p>Postal Code: @Model.PostalCode</p>
+
+        </div>
+        <div class="d-flex" style="gap:10px"> 
+        @if (User.IsInRole("admin"))
+        {
+            <a class="btn-theme btn-replacement" asp-controller="Products" asp-action="ProductAdministration">Product Administration</a>
+                <a class="btn-theme btn-replacement" asp-controller="Admin" asp-action="UserAdministration">User Administration</a>
+        }
+            <a class="btn-theme btn-replacement" asp-controller="Account" asp-action="SignOut">Sign Out</a>
+        </div>
     </div>
-    @if (User.IsInRole("admin"))
-    {
-        <a class="link mt-5" asp-controller="Products" asp-action="Register">Create new products</a>
-    }
-    <a class="link mt-5" asp-controller="Account" asp-action="SignOut">Sign Out</a>
-</div>
+</section>

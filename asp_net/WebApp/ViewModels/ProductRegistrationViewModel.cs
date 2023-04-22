@@ -17,6 +17,8 @@ namespace WebApp.ViewModels
 
         public int? CategoryId { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public List<CategoryEntity> Categories { get; set; } = new List<CategoryEntity>();
 
         public static implicit operator ProductEntity(ProductRegistrationViewModel productRegistrationViewModel)
@@ -26,7 +28,8 @@ namespace WebApp.ViewModels
                 Name = productRegistrationViewModel.Name,
                 Description = productRegistrationViewModel.Description,
                 Price = productRegistrationViewModel.Price,
-                CategoryId = productRegistrationViewModel?.CategoryId
+                CategoryId = productRegistrationViewModel?.CategoryId,
+                ImageUrl = productRegistrationViewModel?.ImageUrl
             };
         }
     }
