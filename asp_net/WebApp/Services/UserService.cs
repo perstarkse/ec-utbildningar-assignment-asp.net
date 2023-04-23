@@ -9,12 +9,10 @@ namespace WebApp.Services
 {
     public class UserService
     {
-        private readonly UserManager<IdentityUser> _userManager;
         private readonly IdentityContext _identityContext;
 
-        public UserService(UserManager<IdentityUser> userManager, IdentityContext identityContext)
+        public UserService(IdentityContext identityContext)
         {
-            _userManager = userManager;
             _identityContext = identityContext;
         }
 

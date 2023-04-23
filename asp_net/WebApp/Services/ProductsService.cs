@@ -36,22 +36,47 @@ namespace WebApp.Services
             return dbItems;
         }
 
-        public async Task<List<ProductEntity>> GetProductEntitiesAsync()
-        {
-            var dbItems = await _context.Products.ToListAsync();
-
-            return dbItems;
-        }
-
-        public async Task<IEnumerable<ProductModel>> GetAllAsync ()
+        public async Task<List<ProductModel>> GetProductsByCategoryIdAsync(int categoryId)
         {
             var products = new List<ProductModel>();
-            var dbItems = await _context.Products.Include(p => p.Category).ToListAsync();
+            var dbItems = await _context.Products
+                .Include(p => p.ProductCategories)
+                .Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId))
+                .ToListAsync();
+
             foreach (var item in dbItems)
             {
                 ProductModel productModel = item;
                 products.Add(productModel);
             }
+
+            return products;
+        }
+
+        public async Task<List<ProductEntity>> GetProductEntitiesAsync()
+        {
+            var dbItems = await _context.Products
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .ToListAsync();
+
+            return dbItems;
+        }
+
+        public async Task<IEnumerable<ProductModel>> GetAllAsync()
+        {
+            var products = new List<ProductModel>();
+            var dbItems = await _context.Products
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .ToListAsync();
+
+            foreach (var item in dbItems)
+            {
+                ProductModel productModel = item;
+                products.Add(productModel);
+            }
+
             return products;
         }
         public async Task<bool> CreateProductAsync(ProductRegistrationViewModel productRegistrationViewModel)
@@ -142,6 +167,22 @@ namespace WebApp.Services
                 return false;
             }
         }
+        public async Task<bool> UpdateProductCategoriesAsync(ProductEntity product, List<int> newCategoryIds)
+        {
+            // Remove old relationships
+            _context.ProductCategories.RemoveRange(product.ProductCategories);
 
+            // Add new relationships
+            foreach (var categoryId in newCategoryIds)
+            {
+                product.ProductCategories.Add(new ProductCategoryEntity
+                {
+                    ProductId = product.Id,
+                    CategoryId = categoryId
+                });
+            }
+
+            return await _context.SaveChangesAsync() > 0;
+        }
     }
 }

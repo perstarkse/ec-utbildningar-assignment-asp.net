@@ -20,6 +20,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
 }).AddEntityFrameworkStores<IdentityContext>();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlProducts")));
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlAccounts")));
+builder.Services.AddDbContext<ContactContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlContacts")));
 
 var app = builder.Build();
 app.UseHsts();

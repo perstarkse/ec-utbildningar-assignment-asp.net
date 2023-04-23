@@ -28,7 +28,6 @@ namespace WebApp.ViewModels
                 Name = productRegistrationViewModel.Name,
                 Description = productRegistrationViewModel.Description,
                 Price = productRegistrationViewModel.Price,
-                CategoryId = productRegistrationViewModel?.CategoryId,
                 ImageUrl = productRegistrationViewModel?.ImageUrl
             };
         }

@@ -57,13 +57,14 @@ namespace WebApp.Controllers
             };
             return View(viewModel);
         }
+
         [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Register(ProductRegistrationViewModel productRegistrationViewModel)
         {
             if (ModelState.IsValid)
             {
-                if(await _productsService.CreateProductAsync(productRegistrationViewModel))
+                if (await _productsService.CreateProductAsync(productRegistrationViewModel))
                 {
                     return RedirectToAction("Register", "Products");
                 }
@@ -71,6 +72,7 @@ namespace WebApp.Controllers
             }
             return View();
         }
+
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> ProductAdministration()
         {
@@ -88,20 +90,21 @@ namespace WebApp.Controllers
 
         [Authorize(Roles = "admin")]
         [HttpPost]
-        public async Task<IActionResult> EditProduct(ProductEntity editProductViewModel)
+        public async Task<IActionResult> EditProduct(Guid id, ProductEditViewModel editProductViewModel)
         {
             if (ModelState.IsValid)
             {
-                var product = await _productsService.GetProductByIdAsync(editProductViewModel.Id);
+                var product = await _productsService.GetProductByIdAsync(id);
                 if (product != null)
                 {
                     product.Name = editProductViewModel.Name;
                     product.Price = editProductViewModel.Price;
                     product.Description = editProductViewModel.Description;
-                    product.CategoryId = editProductViewModel.CategoryId;
                     product.ImageUrl = editProductViewModel.ImageUrl;
 
-                    if (await _productsService.SaveProductAsync(product)) 
+                    await _productsService.UpdateProductCategoriesAsync(product, editProductViewModel.CategoryIds);
+
+                    if (await _productsService.SaveProductAsync(product))
                     {
                         return RedirectToAction("ProductAdministration");
                     }
@@ -114,7 +117,6 @@ namespace WebApp.Controllers
 
             return BadRequest("Failed to edit the product");
         }
-
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> CategoryManagement()
         {

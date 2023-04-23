@@ -1,0 +1,30 @@
+﻿@model GridCollectionViewModel
+
+@if (Model != null)
+{
+    <section class="collection top-selling">
+        <div class="container-fluid">
+            <h1 class="collection-title">@Model.Title</h1>
+            <div class="collection-grid">
+                @if (Model.GridItems != null)
+                {
+                    @foreach (var item in Model.GridItems)
+                    {
+                        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="item" />
+                    }
+                }
+            </div>
+            @if (Model.LoadMore == true)
+            {
+                <div class="load-more">
+                    <button class="btn-white">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="btn-white">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            }
+        </div>
+    </section>
+}

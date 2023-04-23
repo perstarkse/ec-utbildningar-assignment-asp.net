@@ -11,10 +11,9 @@ namespace WebApp.Models.Entities
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-        public int? CategoryId { get ; set; }
-
         public string? ImageUrl { get; set; }
-        public CategoryEntity? Category { get; set; }
+
+        public ICollection<ProductCategoryEntity> ProductCategories { get; set; } = new List<ProductCategoryEntity>();
 
         public static implicit operator ProductModel(ProductEntity productEntity)
         {
@@ -24,7 +23,6 @@ namespace WebApp.Models.Entities
                 Name = productEntity?.Name,
                 Description = productEntity?.Description,
                 Price = productEntity?.Price,
-                Category = productEntity?.Category?.Name,
                 ImageUrl = productEntity?.ImageUrl
             };
         }
