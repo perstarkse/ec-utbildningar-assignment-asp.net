@@ -1,3 +1,5 @@
-﻿<partial name="/Views/Partials/_BreadcrumbProducts.cshtml" />
-<partial name="/Views/Partials/_ProductDetails.cshtml" />
+﻿@model WebApp.Models.ProductModel
+
+<partial name="/Views/Partials/_BreadcrumbProducts.cshtml" />
+<partial name="/Views/Partials/_ProductDetails.cshtml" model="@Model" />
 <partial name="/Views/Partials/_ProductDetailsRelated.cshtml" />

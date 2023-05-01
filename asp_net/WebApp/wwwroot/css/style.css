@@ -342,6 +342,7 @@ header .btn-toggle {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
+  justify-content: center;
 }
 @media (min-width: 768px) {
   .collection .collection-grid {
@@ -369,8 +370,13 @@ header .btn-toggle {
   display: block;
 }
 .collection-item img {
-  width: 100%;
-  height: auto;
+  width: 270px;
+  height: 295px;
+  margin-left: 8px;
+  /*		width: 100%;
+  		height: auto;
+  		max-height: 295px;
+  		max-width: 270px;*/
 }
 .collection-item .body {
   display: flex;
@@ -387,6 +393,9 @@ header .btn-toggle {
 .collection-item .body .info .title {
   font-size: 18px;
   font-weight: 500;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .collection-item .body .info .price {
   font-size: 16px;
@@ -496,7 +505,12 @@ header .btn-toggle {
 }
 @media (min-width: 1200px) {
   .top-selling .collection-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .top-selling .collection-grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 .top-selling .collection-grid .collection-item .body {
@@ -677,6 +691,10 @@ footer .copyright {
   gap: 7px;
   margin-top: 1rem;
 }
+.product-details .container .images-info .images .small img {
+  max-width: 113px;
+  max-height: 130px;
+}
 @media (min-width: 576px) {
   .product-details .container .images-info .images .small {
     display: flex;
@@ -717,6 +735,11 @@ footer .copyright {
 }
 .product-details .container .images-info .info-actions .breadtext {
   margin-bottom: 2rem;
+}
+@media (min-width: 992px) {
+  .product-details .container .images-info .info-actions .breadtext {
+    min-height: 220px;
+  }
 }
 .product-details .container .images-info .info-actions .reviews {
   display: flex;
@@ -798,6 +821,10 @@ footer .copyright {
   grid-area: sku;
   text-align: center;
   margin-top: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 190px;
+  white-space: nowrap;
 }
 .product-details .container .images-info .info-actions .wishlist {
   margin-top: 0.8rem;

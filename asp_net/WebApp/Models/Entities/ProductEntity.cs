@@ -23,8 +23,8 @@ namespace WebApp.Models.Entities
                 Name = productEntity?.Name,
                 Description = productEntity?.Description,
                 Price = productEntity?.Price,
-                ImageUrl = productEntity?.ImageUrl
-            };
+                ImageUrl = productEntity?.ImageUrl,
+			};
         }
     }
 }

@@ -1,25 +1,24 @@
+@model WebApp.Models.ProductModel
+
 <section class="product-details">
 	<div class="container">
 		<div class="images-info">
 			<div class="images">
 				<img class="bigImg"
-					 src="./images/placeholders/501x430.svg"
-					 alt="" />
+					 src="@(string.IsNullOrEmpty(Model.ImageUrl) ? Url.Content("~/images/placeholders/501x430.svg") : Model.ImageUrl)"
+					 alt="Product" />
 				<div class="small">
-					<img src="./images/placeholders/120x113.svg" alt="" />
-					<img src="./images/placeholders/120x113.svg" alt="" />
-					<img src="./images/placeholders/120x113.svg" alt="" />
-					<img src="./images/placeholders/120x113.svg" alt="" />
+					<img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? Url.Content("~/images/placeholders/120x113.svg") : Model.ImageUrl)" alt="Product" />
+					<img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? Url.Content("~/images/placeholders/120x113.svg") : Model.ImageUrl)" alt="Product" />
+					<img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? Url.Content("~/images/placeholders/120x113.svg") : Model.ImageUrl)" alt="Product" />
+					<img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? Url.Content("~/images/placeholders/120x113.svg") : Model.ImageUrl)" alt="Product" />
 				</div>
 			</div>
 			<div class="info-actions">
 				<div class="description">
-					<h3 class="title">Young Star Smart Shoe in Fashion</h3>
+					<h3 class="title">@Model.Name</h3>
 					<p class="breadtext">
-						Lirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-						sed diam voluptua. At vero eos et accusam et justo duo dolores
-						et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-						est Lorem ipsum dolor sit amet.
+						@(string.IsNullOrEmpty(Model.Description) ? "Lirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." : Model.Description)
 					</p>
 					<hr />
 					<div class="reviews">
@@ -32,7 +31,7 @@
 						</div>
 						<div class="nr-reviews">16 Reviews</div>
 					</div>
-					<p class="price">$30</p>
+					<p class="price">$@Model.Price</p>
 					<div class="cart-actions">
 						<div class="counter">
 							<i class="counter-border fa-solid fa-minus"></i>
@@ -47,10 +46,25 @@
 							<div class="yellow"></div>
 							<div class="blue"></div>
 						</div>
-						<p class="sku">SKU: N/A</p>
+						<p class="sku">SKU: @Model.Id</p>
 					</div>
 					<button class="wishlist">Add To Wishlist</button>
-					<p>Category: Table Lamp, Light</p>
+					<p>
+						Category:
+						@{
+							int count = 0;
+							foreach (var category in Model.Categories)
+							{
+								<span>@category</span>
+								if (count < Model.Categories.Count - 1)
+								{
+									<span>,</span>
+								}
+								count++;
+							}
+						}
+					</p>
+
 				</div>
 			</div>
 		</div>
@@ -86,7 +100,7 @@
 				gubergren, no sea takimata santus est Lorem ipsum dolor sit amet.
 				Lorem ipsum dolor.
 			</div>
-			<img src="./images/placeholders/469x356.svg" alt="detailed-view" />
+			<img src="~/images/placeholders/469x356.svg" alt="detailed-view" />
 		</div>
 		<hr />
 	</div>

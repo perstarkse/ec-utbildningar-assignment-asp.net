@@ -8,8 +8,13 @@
 	display: block;
 
 	img {
-		width: 100%;
+		width: 270px;
+		height: 295px;
+		margin-left: 8px;
+/*		width: 100%;
 		height: auto;
+		max-height: 295px;
+		max-width: 270px;*/
 	}
 
 	.body {
@@ -27,6 +32,9 @@
 			.title {
 				font-size: 18px;
 				font-weight: $font-weight-medium;
+				width: 200px;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.price {
 				font-size: 16px;

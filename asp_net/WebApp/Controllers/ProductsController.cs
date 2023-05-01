@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Models;
 using WebApp.Models.Entities;
 using WebApp.Services;
 using WebApp.ViewModels;
@@ -42,6 +43,18 @@ namespace WebApp.Controllers
             return View(AllProducts);
         }
 
+        public async Task<IActionResult> Detailed(Guid id)
+        {
+            ProductModel product = await _productsService.GetProductByIdAsync(id);
+            product.Categories = await _productsService.GetProductCategoriesAsync(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
         public IActionResult Search()
         {
             ViewData["Title"] = "Search for products";

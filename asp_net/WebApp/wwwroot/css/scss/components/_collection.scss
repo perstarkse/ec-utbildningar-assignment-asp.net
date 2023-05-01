@@ -23,6 +23,7 @@
 		font-weight: $font-weight-semibold;
 		font-size: 24px;
 		color: $color-dark-2;
+
 		@include md {
 			text-align: center;
 		}
@@ -54,13 +55,17 @@
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
 		gap: 40px;
+		justify-content: center;
+
 
 		@include md {
 			grid-template-columns: repeat(2, 1fr);
 		}
+
 		@include lg {
 			grid-template-columns: repeat(3, 1fr);
 		}
+
 		@include xl {
 			grid-template-columns: repeat(4, 1fr);
 		}

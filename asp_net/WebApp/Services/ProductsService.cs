@@ -167,22 +167,58 @@ namespace WebApp.Services
                 return false;
             }
         }
-        public async Task<bool> UpdateProductCategoriesAsync(ProductEntity product, List<int> newCategoryIds)
-        {
-            // Remove old relationships
-            _context.ProductCategories.RemoveRange(product.ProductCategories);
+		public async Task<bool> UpdateProductCategoriesAsync(ProductEntity product, List<int> newCategoryIds)
+		{
+			// First, retrieve the existing product categories from the database
+			var existingProductCategories = await _context.ProductCategories
+				.Where(pc => pc.ProductId == product.Id)
+				.ToListAsync();
 
-            // Add new relationships
-            foreach (var categoryId in newCategoryIds)
-            {
-                product.ProductCategories.Add(new ProductCategoryEntity
-                {
-                    ProductId = product.Id,
-                    CategoryId = categoryId
-                });
-            }
+			// Remove the product categories that are not in the newCategoryIds list
+			foreach (var pc in existingProductCategories)
+			{
+				if (!newCategoryIds.Contains(pc.CategoryId))
+				{
+					_context.ProductCategories.Remove(pc);
+				}
+				else
+				{
+					// Remove the existing category ID from newCategoryIds list
+					newCategoryIds.Remove(pc.CategoryId);
+				}
+			}
 
-            return await _context.SaveChangesAsync() > 0;
-        }
-    }
+			// Now, newCategoryIds list contains only the new category IDs that need to be added
+			foreach (var categoryId in newCategoryIds)
+			{
+				product.ProductCategories.Add(new ProductCategoryEntity
+				{
+					ProductId = product.Id,
+					CategoryId = categoryId
+				});
+			}
+
+			return await _context.SaveChangesAsync() > 0;
+		}
+
+
+		public async Task<List<string>> GetProductCategoriesAsync(Guid productId)
+		{
+			var product = await _context.Products
+				.Include(p => p.ProductCategories)
+				.ThenInclude(pc => pc.Category)
+				.FirstOrDefaultAsync(p => p.Id == productId);
+
+			if (product == null)
+			{
+				return new List<string>();
+			}
+
+			var categoryNames = product.ProductCategories
+				.Select(pc => pc.Category.Name)
+				.ToList();
+
+			return categoryNames;
+		}
+	}
 }

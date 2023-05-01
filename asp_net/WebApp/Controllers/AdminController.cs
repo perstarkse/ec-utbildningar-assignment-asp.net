@@ -19,6 +19,12 @@ namespace WebApp.Controllers
         }
 
         [Authorize(Roles = "admin")]
+        public async Task<IActionResult> Index()
+        {
+            return RedirectToAction("Index", "Account");
+        }
+
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> UserAdministration()
         {
             var users = await _userManager.Users.ToListAsync();

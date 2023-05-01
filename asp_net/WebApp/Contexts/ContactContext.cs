@@ -5,7 +5,7 @@ namespace WebApp.Contexts
 {
     public class ContactContext : DbContext
     {
-        public ContactContext(DbContextOptions options) : base(options)
+        public ContactContext(DbContextOptions<ContactContext> options) : base(options)
         {
         }
 
