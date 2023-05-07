@@ -28,6 +28,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
 .onePage {
   display: flex;
   flex-direction: column;
@@ -368,11 +370,11 @@ header .btn-toggle {
   background-color: #ffffff;
   text-decoration: none;
   display: block;
+  max-width: 270px;
 }
 .collection-item img {
-  width: 270px;
+  max-width: 270px;
   height: 295px;
-  margin-left: 8px;
   /*		width: 100%;
   		height: auto;
   		max-height: 295px;
@@ -440,10 +442,28 @@ header .btn-toggle {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.up-to-sell .collection-grid .collection-item {
+  width: 370px !important;
+  max-width: 370px;
+  height: 430px !important;
+}
+.up-to-sell .collection-grid .collection-item img {
+  width: 370px;
+  height: 310px;
+  max-width: 370px;
+  max-height: 310px;
+}
+.up-to-sell .collection-grid .collection-item .title {
+  width: 100%;
+  margin-bottom: 2rem;
+}
 .up-to-sell .collection-grid .collection-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 370px !important;
+  max-width: 370px;
+  height: 430px !important;
 }
 .up-to-sell .collection-grid .collection-content .container {
   text-align: center;
@@ -1117,4 +1137,29 @@ footer .copyright {
 .link:hover {
   text-decoration: underline;
   color: #0056b3;
+}
+
+.post-showcase-item {
+  width: 370px;
+  height: auto;
+}
+.post-showcase-item:hover {
+  text-decoration: none;
+}
+.post-showcase-item .body .title {
+  color: #000000;
+  margin: 0.8rem 0 0.8rem 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+.post-showcase-item .body .description {
+  color: #636363;
+  margin-bottom: 0.8rem;
+}
+.post-showcase-item .body .author {
+  color: #aeaeae;
+}
+.post-showcase-item .body .comments {
+  margin-left: 1rem;
+  color: #aeaeae;
 }

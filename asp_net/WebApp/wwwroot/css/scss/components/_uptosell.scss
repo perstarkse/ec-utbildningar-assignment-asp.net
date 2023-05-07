@@ -15,14 +15,35 @@
 		@include md {
 			grid-template-columns: repeat(2, 1fr);
 		}
+
 		@include lg {
 			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.collection-item {
+			width: 370px !important;
+			max-width: 370px;
+			height: 430px !important;
+			img {
+				width: 370px;
+				height: 310px;
+				max-width: 370px;
+				max-height: 310px;
+			}
+			.title {
+				width: 100%;
+				margin-bottom: 2rem;
+			}
+
 		}
 
 		.collection-content {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			width: 370px !important;
+			max-width: 370px;
+			height: 430px !important;
 
 			.container {
 				text-align: center;
@@ -35,18 +56,21 @@
 				font-size: 18px;
 				font-weight: $font-weight-bold;
 			}
+
 			.title {
 				font-family: $font-playfair;
 				font-weight: $font-weight-bold;
 				font-size: 48px;
 				color: $color-dark-2;
 			}
+
 			.ingress {
 				font-family: $font-poppins;
 				color: $color-dark-2;
 				font-size: 24px;
 				font-weight: $font-weight-bold;
 			}
+
 			.text {
 				margin-top: 20px;
 				font-family: $font-roboto;
@@ -54,6 +78,7 @@
 				font-size: 16px;
 				font-weight: $font-weight-regular;
 			}
+
 			.link {
 				display: block;
 				margin-top: 30px;

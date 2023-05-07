@@ -1,0 +1,13 @@
+﻿@model PostShowcaseViewModel
+
+@if (Model != null)
+{
+    <section class="post-showcase" style="margin-bottom: 3rem;">
+        <div class="container" style="display: flex; gap: 1rem; justify-content: center; align-content: center;">
+            @foreach (PostShowcaseItemViewModel postShowcaseItemViewModel in Model.Posts)
+            {
+                <partial name="/Views/Partials/_PostShowcaseItem.cshtml" model="postShowcaseItemViewModel" />
+            }
+        </div>
+    </section>
+}

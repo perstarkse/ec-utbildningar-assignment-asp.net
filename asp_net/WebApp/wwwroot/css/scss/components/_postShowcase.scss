@@ -1,0 +1,39 @@
+@import '../core/_fonts.scss';
+@import '../core/_mixins';
+@import '../core/_colors';
+
+.post-showcase-item {
+    width: 370px;
+    height: auto;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    img {
+    }
+
+    .body {
+
+        .title {
+            color: $color-dark-1;
+            margin: 0.8rem 0 0.8rem 0;
+            font-family: $font-poppins;
+            font-size: 20px;
+        }
+
+        .description {
+            color: $color-dark-3;
+            margin-bottom: 0.8rem;
+        }
+
+        .author {
+            color: $color-dark-4
+        }
+
+        .comments {
+            margin-left: 1rem;
+            color: $color-dark-4;
+        }
+    }
+}

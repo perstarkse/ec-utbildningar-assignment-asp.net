@@ -1,0 +1,16 @@
+﻿@model PostShowcaseItemViewModel
+
+<a asp-controller="Posts" asp-action="Detailed" asp-route-id="@Model.Id" class="post-showcase-item">
+	<img src="@Model.Image" alt="@Model.Title" />
+	<div class="body">
+		<div class="info">
+			<div class="title">@Model.Title</div>
+			<div class="description">@Model.Description</div>
+			<div>
+				<small class="author">POST BY: @Model.Author.ToString().ToUpper()</small>
+				<small class="comments">COMMENTS: @Model.Comments</small>
+			</div>
+		</div>
+	</div>
+</a>
+

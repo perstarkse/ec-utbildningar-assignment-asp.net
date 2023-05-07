@@ -73,6 +73,16 @@ public class HomeController : Controller
                 GridItems = new List<GridCollectionItemViewModel>(),
                 LoadMore = true,
             },
+            PostShowcase = new PostShowcaseViewModel
+            {
+                Posts = new List<PostShowcaseItemViewModel>
+                {
+                    new PostShowcaseItemViewModel {Id = "1", Title = "This is the first admin post", Author = "Admin", Comments = 13, Description = "Welcome to the grand adventure that is bmerkato", Image = "images/placeholders/370x295.svg" },
+                    new PostShowcaseItemViewModel {Id = "1", Title = "This is the first admin post", Author = "Admin", Comments = 13, Description = "Welcome to the grand adventure that is bmerkato", Image = "images/placeholders/370x295.svg" },
+                    new PostShowcaseItemViewModel {Id = "1", Title = "This is the first admin post", Author = "Admin", Comments = 13, Description = "Welcome to the grand adventure that is bmerkato", Image = "images/placeholders/370x295.svg" },
+
+                }
+            }
 
         };
 
