@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UZ3xqnd6SRVD6C8kwZL7ef48n9HyGFyeqlbLSl5fyIk=",
+  "Hash": "E91jcbZ/2fZYyx51/0PmA1zwHGb58qgKZKv0RWj19Xw=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\scss\\components\\_header.scss"
+    },
+    {
+      "Identity": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_postShowcase.scss",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "css/scss/components/_postShowcase.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\scss\\components\\_postShowcase.scss"
     },
     {
       "Identity": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_productDetails.scss",

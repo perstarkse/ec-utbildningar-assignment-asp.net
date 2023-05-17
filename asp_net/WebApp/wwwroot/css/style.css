@@ -344,7 +344,7 @@ header .btn-toggle {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
-  justify-content: center;
+  place-items: center;
 }
 @media (min-width: 768px) {
   .collection .collection-grid {
@@ -431,13 +431,14 @@ header .btn-toggle {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
+  place-items: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .up-to-sell .collection-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .up-to-sell .collection-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -526,11 +527,6 @@ header .btn-toggle {
 @media (min-width: 1200px) {
   .top-selling .collection-grid {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media (min-width: 1400px) {
-  .top-selling .collection-grid {
-    grid-template-columns: repeat(5, 1fr);
   }
 }
 .top-selling .collection-grid .collection-item .body {
@@ -1139,27 +1135,43 @@ footer .copyright {
   color: #0056b3;
 }
 
-.post-showcase-item {
+.post-showcase .container {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px;
+}
+@media (min-width: 992px) {
+  .post-showcase .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .post-showcase .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.post-showcase .container .post-showcase-item {
   width: 370px;
   height: auto;
 }
-.post-showcase-item:hover {
+.post-showcase .container .post-showcase-item:hover {
   text-decoration: none;
 }
-.post-showcase-item .body .title {
+.post-showcase .container .post-showcase-item .body .title {
   color: #000000;
   margin: 0.8rem 0 0.8rem 0;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
 }
-.post-showcase-item .body .description {
+.post-showcase .container .post-showcase-item .body .description {
   color: #636363;
   margin-bottom: 0.8rem;
 }
-.post-showcase-item .body .author {
+.post-showcase .container .post-showcase-item .body .author {
   color: #aeaeae;
 }
-.post-showcase-item .body .comments {
+.post-showcase .container .post-showcase-item .body .comments {
   margin-left: 1rem;
   color: #aeaeae;
 }

@@ -1,39 +1,56 @@
 @import '../core/_fonts.scss';
 @import '../core/_mixins';
 @import '../core/_colors';
+.post-showcase {
+    .container {
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
 
-.post-showcase-item {
-    width: 370px;
-    height: auto;
-
-    &:hover {
-        text-decoration: none;
-    }
-
-    img {
-    }
-
-    .body {
-
-        .title {
-            color: $color-dark-1;
-            margin: 0.8rem 0 0.8rem 0;
-            font-family: $font-poppins;
-            font-size: 20px;
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        .description {
-            color: $color-dark-3;
-            margin-bottom: 0.8rem;
+        @include xxl {
+            grid-template-columns: repeat(3, 1fr);
         }
 
-        .author {
-            color: $color-dark-4
-        }
+        .post-showcase-item {
+            width: 370px;
+            height: auto;
 
-        .comments {
-            margin-left: 1rem;
-            color: $color-dark-4;
+            &:hover {
+                text-decoration: none;
+            }
+
+            img {
+            }
+
+            .body {
+
+                .title {
+                    color: $color-dark-1;
+                    margin: 0.8rem 0 0.8rem 0;
+                    font-family: $font-poppins;
+                    font-size: 20px;
+                }
+
+                .description {
+                    color: $color-dark-3;
+                    margin-bottom: 0.8rem;
+                }
+
+                .author {
+                    color: $color-dark-4
+                }
+
+                .comments {
+                    margin-left: 1rem;
+                    color: $color-dark-4;
+                }
+            }
         }
     }
 }
+

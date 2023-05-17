@@ -80,7 +80,7 @@ namespace WebApp.Controllers
                     return RedirectToAction("SignIn", "Account");
                 }
 
-                ModelState.AddModelError("", "A user with the same email already exists"); 
+                ModelState.AddModelError("", "Something went wrong creating a new user, please try again"); 
             }
             return View(registerViewModel);
         }

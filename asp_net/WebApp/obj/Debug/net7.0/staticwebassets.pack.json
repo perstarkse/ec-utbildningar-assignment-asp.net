@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\scss\\components\\_header.scss"
     },
     {
+      "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_postShowcase.scss",
+      "PackagePath": "staticwebassets\\css\\scss\\components\\_postShowcase.scss"
+    },
+    {
       "Id": "C:\\Users\\p\\source\\ec-utbildningar-assignemnt-asp_net\\asp_net\\WebApp\\wwwroot\\css\\scss\\components\\_productDetails.scss",
       "PackagePath": "staticwebassets\\css\\scss\\components\\_productDetails.scss"
     },

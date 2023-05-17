@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApp.Models.Entities;
-using System.Threading.Tasks;
 using WebApp.Contexts;
+using WebApp.Models.Entities;
 
 public class ContactsController : Controller
 {
@@ -15,26 +14,33 @@ public class ContactsController : Controller
     public IActionResult Index()
     {
         ViewData["Title"] = "Contact Us";
-
-        return View();
+        return View(new ContactFormViewModel());
     }
 
     [HttpPost]
-    public async Task<IActionResult> SubmitMessage(string firstName, string email, string mobile, string company, string message)
+    public async Task<IActionResult> SubmitMessage(ContactFormViewModel model)
     {
-        var contactMessage = new ContactMessageEntity
+        if (ModelState.IsValid)
         {
-            Name = firstName,
-            PhoneNumber = mobile,
-            Company = company,
-            Email = email,
-            Message = message,
-            Date = DateTime.UtcNow
-        };
+            var contactMessage = new ContactMessageEntity
+            {
+                Name = model.FirstName,
+                PhoneNumber = model.Mobile,
+                Company = model.Company,
+                Email = model.Email,
+                Message = model.Message,
+                Date = DateTime.UtcNow
+            };
 
-        _contactContext.RecievedMessages.Add(contactMessage);
-        await _contactContext.SaveChangesAsync();
+            _contactContext.RecievedMessages.Add(contactMessage);
+            await _contactContext.SaveChangesAsync();
 
-        return RedirectToAction("Index");
+            TempData["SuccessMessage"] = "Message successfully submitted, we'll contact you.";
+
+            return RedirectToAction("Index");
+        }
+
+        // If the model is not valid, return the view with the validation errors
+        return View("Index", model);
     }
 }

@@ -13,16 +13,15 @@ namespace WebApp.ViewModels
 	{
         public string? Title { get; set; }
 
-		[Required(ErrorMessage = "You must enter a first name")]
-		[Display(Name = "First name")]
-        //convert the regex to match swedish names as well
-        [RegularExpression(@"^[a-zA-Z\u00C0-\u00FF'-]+$", ErrorMessage = "A valid name can only contain letters, spaces, apostrophes, and hyphens")]
-		public string FirstName { get; set; } = null!;
+        [Required(ErrorMessage = "You must enter a first name")]
+        [Display(Name = "First name")]
+        [RegularExpression(@"^[a-zA-ZåäöÅÄÖ\u00C0-\u00FF'-]+$", ErrorMessage = "A valid name can only contain letters, spaces, apostrophes, and hyphens")]
+        public string FirstName { get; set; } = null!;
 
         [Required(ErrorMessage = "You must enter a last name")]
         [Display(Name = "Last name")]
-        [RegularExpression(@"^[a-zA-Z\u00C0-\u00FF'-]+$", ErrorMessage = "A valid name can only contain letters, spaces, apostrophes, and hyphens")]
-		public string LastName { get; set; } = null!;
+        [RegularExpression(@"^[a-zA-ZåäöÅÄÖ\u00C0-\u00FF'-]+$", ErrorMessage = "A valid name can only contain letters, spaces, apostrophes, and hyphens")]
+        public string LastName { get; set; } = null!;
 
         [Required(ErrorMessage = "You must enter a email")]
         [Display(Name = "Email")]
@@ -31,6 +30,7 @@ namespace WebApp.ViewModels
 
         [Required(ErrorMessage = "You must enter a password")]
         [Display(Name = "Password")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password needs to have at least 8 characters, one uppercase letter, and one lowercase letter")]
         public string Password { get; set; } = null!;
 
         [Required(ErrorMessage = "You must confirm your password")]

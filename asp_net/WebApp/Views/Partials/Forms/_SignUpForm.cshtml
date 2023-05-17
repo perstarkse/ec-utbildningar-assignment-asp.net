@@ -1,73 +1,134 @@
 @model RegisterViewModel
 
-        <div class="title">@Model.Title</div>
+<div class="title">@Model.Title</div>
 
-        <form method="post" novalidate>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="name">
-                <div class="form-group">
-                    <label for="firstName" asp-for="FirstName"></label>
-                    <input asp-for="FirstName" type="text" name="firstName" class="invalid" required />
-                    <span class="error" asp-validation-for="FirstName"></span> 
-                </div>
-                <div class="form-group">
-                    <label for="lastName" asp-for="LastName"></label>
-                    <input asp-for="LastName" type="text" name="lastName" class="invalid" required />
-                     <span class="error" asp-validation-for="LastName"></span> 
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="StreetName" for="streetName"></label>
-                <input asp-for="StreetName" type="text" name="streetName" />
-            </div>
-            <div class="addressOptions">
-                <div class="form-group">
-                    <label asp-for="PostalCode" for="postalCode"></label>
-                    <input asp-for="PostalCode" type="text" name="postalCode"/>
-                </div>
-                <div class="form-group">
-                    <label asp-for="City" for="city"></label>
-                    <input asp-for="City" type="text" name="city" />
-                </div>
-            </div>
-            <div class="optionals">
-                <div class="phoneNumber form-group">
-                    <label asp-for="PhoneNumber" for="phoneNumber"></label>
-                    <input asp-for="PhoneNumber" type="text" name="phoneNumber" />
-                </div>
-                <div class="companyName form-group">
-                    <label asp-for="Company" for="company"></label>
-                    <input asp-for="Company" type="text" name="company" />
-                </div>
-            </div>
-            <div class="email form-group">
-                <label asp-for ="Email" for="email"></label>
-                <input asp-for="Email" type="email" name="email" class="invalid" required />
-                 <span class="error" asp-validation-for="Email"></span> 
-            </div>
-            <div class="password form-group">
-                <label asp-for="Password" for="password"></label>
-                <input asp-for="Password" type="password" name="password" class="invalid" required />
-                 <span class="error" asp-validation-for="Password"></span> 
-            </div>
-            <div class="password form-group">
-                <label asp-for="ConfirmPassword" for="confirmPassword"></label>
-                <input asp-for="ConfirmPassword" type="password" name="confirmPassword" class="invalid" required />
-                <span class="error" asp-validation-for="ConfirmPassword"></span> 
-            </div>
-            <div class="uploadImage form-group">
-                <label asp-for="ProfileImage" for="profileImage"></label>
-                <input asp-for="ProfileImage" type="file" name="profileImage" accept="image/*" />
-            </div>
-            @if (Model.RequireTerms == true)
-            {
-             <div class="termHolder">
-            <input class="terms" type="checkbox" name="terms" required />
-                <label for="terms">
-                    I have read and accept the terms and agreements
-                </label>
-                <span class="error">You must accept the terms and agreements</span>
-            </div>
+<form id="registerForm" method="post" novalidate>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="name">
+        <div class="form-group">
+            <label for="firstName" asp-for="FirstName"></label>
+            <input asp-for="FirstName" type="text" name="firstName" required />
+            <span class="error" asp-validation-for="FirstName"></span> 
+        </div>
+        <div class="form-group">
+            <label for="lastName" asp-for="LastName"></label>
+            <input asp-for="LastName" type="text" name="lastName"  required />
+                <span class="error" asp-validation-for="LastName"></span> 
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="StreetName" for="streetName"></label>
+        <input asp-for="StreetName" type="text" name="streetName" />
+    </div>
+    <div class="addressOptions">
+        <div class="form-group">
+            <label asp-for="PostalCode" for="postalCode"></label>
+            <input asp-for="PostalCode" type="text" name="postalCode"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="City" for="city"></label>
+            <input asp-for="City" type="text" name="city" />
+        </div>
+    </div>
+    <div class="optionals">
+        <div class="phoneNumber form-group">
+            <label asp-for="PhoneNumber" for="phoneNumber"></label>
+            <input asp-for="PhoneNumber" type="text" name="phoneNumber" />
+        </div>
+        <div class="companyName form-group">
+            <label asp-for="Company" for="company"></label>
+            <input asp-for="Company" type="text" name="company" />
+        </div>
+    </div>
+    <div class="email form-group">
+        <label asp-for ="Email" for="email"></label>
+        <input asp-for="Email" type="email" name="email" required />
+            <span class="error" asp-validation-for="Email"></span> 
+    </div>
+    <div class="password form-group">
+        <label asp-for="Password" for="password"></label>
+        <input asp-for="Password" type="password" name="password" required />
+            <span class="error" asp-validation-for="Password"></span> 
+    </div>
+    <div class="password form-group">
+        <label asp-for="ConfirmPassword" for="confirmPassword"></label>
+        <input asp-for="ConfirmPassword" type="password" name="confirmPassword"  required />
+        <span class="error" asp-validation-for="ConfirmPassword"></span> 
+    </div>
+    <div class="uploadImage form-group">
+        <label asp-for="ProfileImage" for="profileImage"></label>
+        <input asp-for="ProfileImage" type="file" name="profileImage" accept="image/*" />
+    </div>
+    @if (Model.RequireTerms == true)
+    {
+        <div class="termHolder">
+    <input class="terms" type="checkbox" name="terms" required />
+        <label for="terms">
+            I have read and accept the terms and agreements
+        </label>
+        <span class="error">You must accept the terms and agreements</span>
+    </div>
+    }
+    <button type="submit" class="btn-theme">Submit</button>
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('registerForm');
+        var passwordInput = form.querySelector('#Password');
+        var confirmPasswordInput = form.querySelector('#ConfirmPassword');
+
+        var requiredInputs = form.querySelectorAll('input[required]');
+        for (var i = 0; i < requiredInputs.length; i++) {
+            requiredInputs[i].addEventListener('keyup', validateInput);
+            requiredInputs[i].addEventListener('blur', validateInput);
+        }
+
+        function validateInput() {
+            var errorElement = this.parentNode.querySelector('.error');
+            if (errorElement) {
+                errorElement.remove();
             }
-            <button type="submit" class="btn-theme">Submit</button>
-        </form>
+
+            if (!this.value) {
+                switch (this.name) {
+                    case 'firstName':
+                        showError(this, "First name is required");
+                        break;
+                    case 'lastName':
+                        showError(this, "Last name is required");
+                        break;
+                    case 'email':
+                        showError(this, "Email is required");
+                        break;
+                    case 'password':
+                        showError(this, "Password is required");
+                        break;
+                    case 'confirmPassword':
+                        showError(this, "Confirmation of password is required");
+                        break;
+                    default:
+                        showError(this, this.name + " is required");
+                        break;
+                }
+            } else if (this.type === "email" && !this.checkValidity()) {
+                showError(this, "Please enter a valid email address");
+            } else if (this.name === "password" && !isValidPassword(this.value)) {
+                showError(this, "Password needs to have at least 8 characters, one uppercase letter, and one lowercase letter");
+            } else if (this.name === "confirmPassword" && this.value !== passwordInput.value) {
+                showError(this, "Your passwords do not match. Please try again");
+            }
+        }
+
+        function isValidPassword(password) {
+            return /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+        }
+
+        function showError(inputElement, message) {
+            var errorElement = document.createElement('div');
+            errorElement.className = 'error';
+            errorElement.textContent = message;
+            inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+        }
+    });
+</script>
+

@@ -1,26 +1,56 @@
 @model SignInViewModel
 
 <section class="userForm onePage menu-spacer">
-	<div class="container">
-		<div class="title">Please Login To Your Account</div>
-		<form method="post" novalidate>
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="container">
+        <div class="title">Please Login To Your Account</div>
+        <form method="post" id="loginForm" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-			<div class="labelUtilsLeft">
-				<label asp-for="Email" for="email"></label><a asp-controller="Account" asp-action="SignUp">Don't have an account yet?</a>
-			</div>
-			 <input asp-for="Email" type="email" name="email" class="invalid" required />
-			<span class="error" asp-validation-for="Email"></span>
-			<div class="labelUtilsRight">
-				<label asp-for="Password" for="password"></label><a href="#">Forgot your password?</a>
-			</div>
-			<input asp-for="Password" type="password" name="password" class="invalid" required />
-			<span class="error" asp-validation-for="Password"></span>
-			<div class="termHolder">
-				<input class="leaveSignedIn" type="checkbox" name="leaveSignedIn" />
-				<label for="leaveSignedIn">Please leave me logged in</label>
-			</div>
-			<button class="btn-theme">Submit</button>
-		</form>
-	</div>
+            <div class="labelUtilsLeft">
+                <label asp-for="Email" for="email"></label><a asp-controller="Account" asp-action="SignUp">Don't have an account yet?</a>
+            </div>
+            <input asp-for="Email" id="email" type="email" name="email" required />
+            <span class="error" asp-validation-for="Email"></span>
+            <div class="labelUtilsRight">
+                <label asp-for="Password" for="password"></label><a href="#">Forgot your password?</a>
+            </div>
+            <input asp-for="Password" type="password" name="password" required />
+            <span class="error" asp-validation-for="Password"></span>
+            <div class="termHolder">
+                <input class="leaveSignedIn" type="checkbox" name="leaveSignedIn" />
+                <label for="leaveSignedIn">Please leave me logged in</label>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('loginForm');
+
+        var emailInput = form.querySelector('#email');
+        emailInput.addEventListener('keyup', validateEmail);
+        emailInput.addEventListener('blur', validateEmail);
+
+        function validateEmail() {
+            var errorElement = this.parentNode.querySelector('.error');
+            if (errorElement) {
+                errorElement.remove();
+            }
+
+            if (!this.value) {
+                showError(this, "Email address is required");
+            } else if (!this.checkValidity()) {
+                showError(this, "Invalid email address");
+            }
+        }
+
+        function showError(inputElement, message) {
+            var errorElement = document.createElement('div');
+            errorElement.className = 'error';
+            errorElement.textContent = message;
+            inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+        }
+    });
+</script>
