@@ -82,7 +82,6 @@ public class HomeController : Controller
                     new PostShowcaseItemViewModel {Id = "1", Title = "This is the first admin post", Author = "Admin", Comments = 13, Description = "Welcome to the grand adventure that is bmerkato", Image = "images/placeholders/370x295.svg" },
                 }
             }
-
         };
 
 		if (popularProducts != null)
